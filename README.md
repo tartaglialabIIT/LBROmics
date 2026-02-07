@@ -16,7 +16,7 @@ It provides scripts and workflows to reproduce the main computational analyses o
 
 ## Repository structure
 
-**bulkRNAseq/**
+**bulk/**
 
 Scripts for reproducing bulk RNA-seq analyses, including:
 
