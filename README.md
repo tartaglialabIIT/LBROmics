@@ -19,10 +19,15 @@ It provides scripts and workflows to reproduce the main computational analyses o
 **bulkRNAseq/**
 
 Scripts for reproducing bulk RNA-seq analyses, including:
+
 	•	differential expression analysis (DESeq2)
+
 	•	PCA and sample distance quality controls
+	
 	•	heatmaps for key gene sets (escapees, X-linked genes, markers)
+	
 	•	annotated karyoplot of X chromosome
+	
 	•	GSEA and ORA using webgestaltR
 
 These scripts use raw count matrices deposited on GEO.
@@ -30,16 +35,23 @@ These scripts use raw count matrices deposited on GEO.
 **scRNAseq/**
 
 Scripts for single-cell RNA-seq analysis, including:
+	
 	•	preprocessing and clustering
+	
 	•	differential expression analyses
+	
 	•	marker gene visualization
+	
 	•	trajectory inference and tradeseq analysis
 
 **4fSAMMYseq/**
 
 Analysis workflows for chromatin solubility profiling (4f-SAMMY-seq), including:
+	
 	•	differential solubility analysis
+	
 	•	chromatin compartment analysis
+	
 	•	comparison with ChIP-seq data
 
 ## Data availability
