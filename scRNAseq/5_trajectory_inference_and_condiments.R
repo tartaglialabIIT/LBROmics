@@ -27,7 +27,6 @@ setwd(wd)
 
 # Load the clustered rds object with the diffusion map computed with destiny
 data.combined <- readRDS("./files/sub_data_combined_and_clustered_dm.rds")
-data.combined
 data.combined$cond <- factor(data.combined$cond, levels = c('WT', 'mutant'))
 data.combined@meta.data$integrated_snn_res.0.2 <- factor(x = data.combined@meta.data$integrated_snn_res.0.2
                                                          ,levels=c(0,2,3,1))
@@ -44,7 +43,6 @@ df <- data.frame(dimred, "Cluster" = as.character(clustering))
 df$Cluster <- factor(df$Cluster,levels = c("1","2","3","4","0","5"))
 
 pal <- hue_pal()(7)
-pal
 pal <- c(pal[1],pal[2],pal[3],pal[5],pal[6],pal[7])
 
 pdf("./plots_JULY_2023/trajectory_inference/slingshot_curves.pdf",
@@ -66,7 +64,6 @@ plot3d.SlingshotDataSet(SlingshotDataSet(sds),lwd=3, type = 'curves',add=T)
 dev.off()
 # Load the lineages from slingshot
 load("./files_JULY_2023/curves.RData")
-curves
 
 set.seed(1)
 lineages <- getLineages(data = dimred,
@@ -75,7 +72,6 @@ lineages <- getLineages(data = dimred,
                         start.clus = "1") #define where to start the trajectories
 
 curves <- getCurves(lineages, approx_points = 300, thresh = 0.01, stretch = 0.8, allow.breaks = FALSE, shrink = 0.99)
-curves
 save(curves, file = "./files_JULY_2023/curves.RData")
 
 df <- data.frame(dimred)
@@ -163,4 +159,3 @@ counts <- as.matrix(data.combined@assays$RNA@counts)
 icMat <- evaluateK(counts = counts, sds = curves, k = 3:10, 
                    nGenes = 200, verbose = T,plot=TRUE)
 
-icMat

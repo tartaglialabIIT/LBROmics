@@ -1,4 +1,5 @@
-Jonathan Fiorentino 28/07/2022
+Bulk RNA-seq preprocessing outline (LBROmics)
+Date: 2022-07-28
 
 1. Remove adapters using Cutadapt V4.1 script run_cutadapt.sh
 2. Fastqc (V0.11.9) to see if the trimming was successful script run_fastqc.sh

@@ -1,18 +1,19 @@
 library(DESeq2)
 library(rtracklayer)
 
-# Set working directory
-wd <- "/Users/jfiorentino/Desktop/OneDrive - Fondazione Istituto Italiano Tecnologia/IIT/Cerase_single_cell/SAMMY-seq/DESEQ2/"
-setwd(wd)
+# Working directory: folder containing count tables / DiffExp outputs
+# (set LBROMICS_B3_ROOT or run from that folder)
+root <- Sys.getenv("LBROMICS_B3_ROOT", unset = ".")
+setwd(root)
 
-# GTF file for gene names
-gtf_file <- '/Users/jfiorentino/Desktop/OneDrive - Fondazione Istituto Italiano Tecnologia/IIT/Cerase_single_cell/SAMMY-seq/DESEQ2/mm10.gtf'
+# GTF for gene names (GRCm38 / mm10)
+gtf_file <- Sys.getenv("LBROMICS_GTF", unset = "mm10.gtf")
 gtf <- rtracklayer::import(gtf_file)
 gtf_df <- as.data.frame(gtf)[, c("gene_id", "gene_name")]
 gtf_df <- gtf_df[!duplicated(gtf_df), ]
 
 # List count files
-count_folder <- "/Users/jfiorentino/Desktop/OneDrive - Fondazione Istituto Italiano Tecnologia/IIT/Cerase_single_cell/SAMMY-seq/bulk_rnaseq_count_matrices"
+count_folder <- Sys.getenv("LBROMICS_B3_COUNTS", unset = "bulk_rnaseq_count_matrices")
 ff <- list.files(path = count_folder, pattern = "*ReadsPerGene.out.tab$", full.names = TRUE)
 counts.files <- lapply(ff, read.table, skip = 4)
 
@@ -306,7 +307,7 @@ make_heatmap <- function(dds, vsd, res_df, prefix){
 make_heatmap(dds_ESC, vsd_ESC, esc_res, "ESC")
 make_heatmap(dds_NPC, vsd_NPC, npc_res, "NPC")
 
-ggsave(pesc, file="./DiffExp/prova.pdf", device = "pdf")
+ggsave(pesc, file="./DiffExp/PCA_ESC.pdf", device = "pdf")
 
 
 # ============================================================
@@ -515,17 +516,8 @@ write.table(
 
 message("Done: NPC escapee and NPC marker heatmaps saved in ./DiffExp/")
 
-npc_res[(npc_res$log2FoldChange>1 & npc_res$padj<0.01),]
-
-npc.UP <- npc_res[(npc_res$log2FoldChange>1 & npc_res$padj<0.01),]
-npc.DOWN <- npc_res[(npc_res$log2FoldChange< -1 & npc_res$padj<0.01),]
-
-
-npc.UP[npc.UP$gene_name %in% escapee_present,]
-npc.DOWN[npc.DOWN$gene_name %in% escapee_present,]
-
-npc.UP[npc.UP$gene_name %in% NPC_markers,]
-npc.DOWN[npc.DOWN$gene_name %in% NPC_markers,]
+npc.UP <- npc_res[(npc_res$log2FoldChange > 1 & npc_res$padj < 0.01), ]
+npc.DOWN <- npc_res[(npc_res$log2FoldChange < -1 & npc_res$padj < 0.01), ]
 
 
 
@@ -535,7 +527,7 @@ npc.DOWN[npc.DOWN$gene_name %in% NPC_markers,]
 
 # Read gene positions if not already loaded
 gene_pos <- read.csv(
-  "/Users/jfiorentino/Desktop/OneDrive - Fondazione Istituto Italiano Tecnologia/IIT/Cerase_single_cell/ANALYSIS/InferCNV/Mus_musculus.GRCm38.98_gen_pos.txt",
+  Sys.getenv("LBROMICS_GENE_POS", unset = "../ref/Mus_musculus.GRCm38.98_gen_pos.txt"),
   sep = "\t",
   header = FALSE
 )
@@ -627,17 +619,11 @@ write.table(
 
 
 ############### FIND DE genes on the X chromosome that should be highlighted in the karyoplot ##################
-gene_pos <- read.csv('/Users/jfiorentino/Desktop/OneDrive - Fondazione Istituto Italiano Tecnologia/IIT/Cerase_single_cell/ANALYSIS/InferCNV/Mus_musculus.GRCm38.98_gen_pos.txt',
+gene_pos <- read.csv(Sys.getenv("LBROMICS_GENE_POS", unset = "../ref/Mus_musculus.GRCm38.98_gen_pos.txt"),
                      sep= '\t',header=F)
 gene.pos.X<- gene_pos[gene_pos$V2=="X",]
 
-"Mid1" %in% gene.pos.X$V1
-
 x.chr.genes <- gene.pos.X$V1
-
-"Mid1" %in% x.chr.genes
-
-npc_sig
 
 x.chr.genes.sig <- npc_sig[npc_sig$gene_name %in% x.chr.genes,]
 
@@ -656,11 +642,7 @@ bin.counts <- gene.pos.X.sig %>%
   summarise(n = n()) %>%
   as.data.frame()
 bin.counts <- bin.counts[bin.counts$n >5,]
-bin.counts
-
 gene.pos.X.sig.karyo <- gene.pos.X.sig[gene.pos.X.sig$bin %in% bin.counts$bin,]
-
-hist(gene.pos.X.sig$mid_Mb,breaks = seq(0,175,5))
 
 # Save the name of the genes to be highlighted
 write.csv(x=gene.pos.X.sig.karyo,"genes_for_karyo_B3.csv")
