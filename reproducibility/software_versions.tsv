@@ -70,3 +70,11 @@ ChIP_seq_signal	BEDTools	TODO	preprint Methods	required	Scripts not in repo
 ChIP_seq_signal	bigWigToBedGraph	TODO	UCSC kent utils; preprint Methods	required	Scripts not in repo
 reference	Ensembl GTF	GRCm38.98	deseq2_analysis.R + preprint	required	
 reference	UCSC/mm10 GTF	mm10	TPM_DSR.R + karyoploteR genome=mm10	required	
+4fSAMMY_pipeline	Nextflow	24.10.4	reproducibility/environments/nextflow_pins.env (from nextflow.log)	required	
+4fSAMMY_pipeline	nf-core/sammyseq	dev @ fa6f6ffeb3	nextflow.log / nextflow_pins.env	required	compartments_subworkflow commit still to confirm on server
+4fSAMMY_pipeline	executor profile	docker	cmd_to_run.sh / nextflow_pins.env	required	
+scRNAseq_QC	Python	3.7.7	python_xci-venv/pyvenv.cfg	required	
+scRNAseq_QC	scanpy	1.9.1	python_xci-venv/requirements.txt	required	
+scRNAseq_velocity	cellrank	1.5.1	python_xci-venv/requirements.txt	required	
+scRNAseq_velocity	scvelo	0.2.5	python_xci-venv/requirements.txt	required	
+scRNAseq_velocity	kb-python	TODO (0.27.3 preprint)	kb_script.sh uses velo-venv on server	required	server velo-venv freeze still useful

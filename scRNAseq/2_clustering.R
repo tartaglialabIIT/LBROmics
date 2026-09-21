@@ -11,7 +11,22 @@ library(cowplot)
 library(mcclust)
 library(clustree)
 
-cl2 <- read.csv("./files/good_cells.csv",row.names = 1)
+cl2_path <- Sys.getenv("LBROMICS_GOOD_CELLS", unset = "")
+if (!nzchar(cl2_path)) {
+  candidates <- c(
+    "./files/good_cells.csv",
+    "good_cells.csv",
+    file.path(dirname(wd), "good_cells.csv")
+  )
+  # If running from repo scRNAseq/ with deposited file:
+  script_candidates <- candidates
+  hit <- script_candidates[file.exists(script_candidates)]
+  if (length(hit) < 1) {
+    stop("good_cells.csv not found; set LBROMICS_GOOD_CELLS or place file at files/good_cells.csv")
+  }
+  cl2_path <- hit[[1]]
+}
+cl2 <- read.csv(cl2_path, row.names = 1)
 
 raw_wt <- Sys.getenv("LBROMICS_SCRNA_WT_10X", unset = "")
 raw_mut <- Sys.getenv("LBROMICS_SCRNA_MUT_10X", unset = "")

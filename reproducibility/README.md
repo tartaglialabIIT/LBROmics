@@ -1,23 +1,20 @@
 # Reproducibility materials
 
-This directory supports journal-ready code sharing for the LBROmics analysis repository. It documents **what can be verified from the repository and preprint**, and clearly marks what still requires author-exported environments.
-
 | File | Purpose |
 |------|---------|
 | `data_accessions.tsv` | GEO / public data mapping |
 | `software_versions.tsv` | Software inventory with provenance |
-| `figure_to_code.tsv` | Manuscript figure ↔ script map (partial; TODOs marked) |
-| `environments/` | Package inventories and environment skeletons (**not** fabricated lockfiles) |
-| `execution_order.md` | Step-by-step run order per workflow |
+| `figure_to_code.tsv` | Manuscript figure ↔ script map |
+| `execution_order.md` | Step-by-step run order |
+| `RECOVERED_CODE.md` | Map of recovered analysis scripts |
+| `environments/` | Python/Nextflow pins and R export notes |
 
-## Environment recreation status
+## Environments
 
-| Workflow | Lockfile in repo? | Versions recoverable? | Action for authors |
-|----------|-------------------|----------------------|--------------------|
-| bulk RNA-seq (R) | No | Partial (preprint) | Export `sessionInfo()` + package versions from the DESeq2 machine |
-| scRNA-seq Python QC | No | Python 3.7.7 + Scanpy 1.9.1 (notebook/preprint) | `pip freeze` from `xci-venv` |
-| scRNA-seq R (Seurat → tradeSeq) | No | Partial (preprint + R 4.2.2 comment) | `sessionInfo()` from Seurat machine |
-| 4f-SAMMY-seq nf-core | No | Unpinned `dev` in preprint | Pin commit + Nextflow version + profile |
-| ChIP-seq nf-core | No | Not specified | Pin nf-core/chipseq release/commit |
-
-Do **not** treat preprint version lists as a substitute for `renv.lock` / conda lockfiles when claiming bit-for-bit reproducibility.
+| Workflow | What is deposited | Notes |
+|----------|-------------------|-------|
+| scRNA / CellRank Python | `environments/python_xci-venv/` (`requirements.txt` + METADATA inventory); Python **3.7.7** | Prefer live `pip freeze` from original machine if available |
+| 4f-SAMMY Nextflow | `environments/nextflow_pins.env` — NF **24.10.4**, sammyseq **`fa6f6ffeb3`** (`dev`), docker profile | Confirm compartments branch commit on server |
+| R stacks | Preprint versions in `software_versions.tsv` / `*_r_packages.txt` | Author `sessionInfo()` still recommended (`R_sessionInfo_TODO.md`) |
+| Chromosomal enrichment Python | Separate historical `INTERACTomics-venv` | See notebook kernel metadata |
+| kb_python | Historical `velo-venv` on analysis server | Export still useful if available |

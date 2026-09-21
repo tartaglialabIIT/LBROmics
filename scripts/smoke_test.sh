@@ -21,6 +21,9 @@ required=(
   reproducibility/software_versions.tsv
   reproducibility/data_accessions.tsv
   reproducibility/figure_to_code.tsv
+  reproducibility/environments/nextflow_pins.env
+  reproducibility/environments/python_xci-venv/requirements.txt
+  scRNAseq/good_cells.csv
   demo/run_demo.py
 )
 for f in "${required[@]}"; do
