@@ -48,6 +48,14 @@ Key versions are listed in `reproducibility/software_versions.tsv`. In brief:
 - Nextflow **24.10.4**; nf-core/sammyseq **`dev` @ `fa6f6ffeb3`** (`reproducibility/environments/nextflow_pins.env`)
 - Genome annotation: Ensembl GRCm38.98 / mm10
 
+### Tested system and hardware
+
+The analysis workflows were run and tested on Linux-based computing environments. A representative tested OS is **Ubuntu 22.04.5 LTS** (Jammy Jellyfish). No GPU or other specialized accelerator hardware is required. Raw sequencing preprocessing and nf-core workflows may require a multi-core Linux server or workstation depending on dataset size, whereas the downstream analysis scripts and demonstration can be run on a standard workstation.
+
+**Non-standard hardware:** none required for the downstream analysis code or demonstration. Large-scale preprocessing of sequencing data was performed on Linux servers and does not require GPUs or specialized hardware.
+
+Further detail: [`reproducibility/tested_system.md`](reproducibility/tested_system.md).
+
 ---
 
 ## Quick start
