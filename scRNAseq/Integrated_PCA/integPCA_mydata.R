@@ -6,11 +6,10 @@ library(preprocessCore)
 library(corrplot)
 library(dplyr)
 
-wd <- "/Users/jonathan/Desktop/IIT/Cerase_single_cell/ANALYSIS/Seurat_analysis/Integrated_PCA/"
-setwd(wd)
+# Run from scRNAseq/Integrated_PCA/ (or setwd accordingly)
 
 # Load the bulk data from mESCs and NPCs
-bulk.diff <- read.table("../../../bulk_RNA_seq/analysis_results/raw_counts/raw_counts_diff.txt", header = T)
+bulk.diff <- read.table(Sys.getenv("LBROMICS_BULK_DIFF_COUNTS", unset = "../../bulk/raw_counts_NPC.txt"), header = TRUE)
 bulk.diff <- bulk.diff[,2:8]
 bulk.diff <- as.data.frame(bulk.diff %>% 
   group_by(gene_name) %>% 
@@ -19,7 +18,7 @@ rownames(bulk.diff) <- bulk.diff$gene_name
 bulk.diff <- bulk.diff[,2:7]
 head(bulk.diff)
 
-bulk.und <- read.table("../../../bulk_RNA_seq/analysis_results/raw_counts/raw_counts_und.txt", header = T)
+bulk.und <- read.table(Sys.getenv("LBROMICS_BULK_UND_COUNTS", unset = "../../bulk/raw_counts_mESC.txt"), header = TRUE)
 bulk.und <- bulk.und[,2:8]
 bulk.und <- as.data.frame(bulk.und %>% 
                              group_by(gene_name) %>% 
@@ -39,9 +38,6 @@ tmp <- do.call(cbind, lapply(asplit, function(x) Matrix::rowSums(data.combined@a
 tmp <- tmp[which(rowSums(tmp) > 0),]
 insilico <- tmp
 cond_insilico <- as.character(data.combined@meta.data$grouping[match(colnames(insilico), data.combined@meta.data$cond)])
-#age_insilico <- gsub("3m", "young", age_insilico)
-#age_insilico <- gsub("24m", "old", age_insilico)
-
 # Show correspondence between bulk and insilico ####
 ok <- intersect(rownames(bulk.diff), rownames(insilico))
 ok <- intersect(ok, rownames(bulk.und))

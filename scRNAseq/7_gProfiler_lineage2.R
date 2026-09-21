@@ -55,8 +55,3 @@ pp <- publish_gostplot(p,highlight_terms = c(mydf.GO[1:5,"term_id"],"GO:0051276"
                        width = NA, height = NA, filename = NULL )
 pp
 dev.off()
-
-
-# Plot results
-p <- gostplot(gprofiler_results, capped = TRUE, interactive = T)
-p

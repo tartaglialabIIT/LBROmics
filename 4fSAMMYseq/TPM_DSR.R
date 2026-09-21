@@ -97,7 +97,6 @@ head(genes_gr)
 # Overlap genes with DSRs
 # -----------------------
 hits <- findOverlaps(genes_gr, dsr_gr, ignore.strand = TRUE)
-hits
 gene_dsr_map <- data.frame(
   gene_name = genes_gr$gene_name[queryHits(hits)],
   gene_id   = genes_gr$gene_id[queryHits(hits)],
@@ -230,4 +229,3 @@ wilcox_bycat <- tpm_long %>%
     .groups = "drop"
   )
 
-wilcox_bycat

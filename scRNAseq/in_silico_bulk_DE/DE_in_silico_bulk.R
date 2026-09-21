@@ -1,5 +1,4 @@
-wd<- "/mnt/large/jfiorentino/Cerase_Data/scRNA_seq/in_silico_bulk_DE/"
-setwd(wd)
+# Run from scRNAseq/in_silico_bulk_DE/ (or setwd to that folder)
 
 library("DESeq2")
 library("scran")

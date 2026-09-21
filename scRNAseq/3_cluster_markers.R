@@ -14,7 +14,6 @@ source("myfunctions.R")
 
 # Load the clustered rds object
 data.combined <- readRDS("./RDS_objects/sub_data_combined_and_clustered.rds")
-data.combined
 
 
 table(data.combined$integrated_snn_res.0.3)
@@ -174,7 +173,6 @@ for (i in 0:(length(clusters)-1)){
 
 
 
-markers03
 
 for (i in 1: length(markers01)){
   print(length(rownames(markers01[[i]])))
@@ -195,7 +193,6 @@ data.combined <- ScaleData(data.combined)
 # Make a heatmap of the Xlr genes
 row.names(data.combined)[grep("Xlr", row.names(data.combined))]
 
-"Xlr" %in% row.names(data.combined)
 pdf(file = "./plots_JULY_2023/dotplot_Xlr.pdf",   # The directory you want to save the file in
     width = 8, # The width of the plot in inches
     height = 3.5) # The height of the plot in inches
@@ -270,7 +267,6 @@ for (i in 0:(length(clusters)-1)){
 }
 DefaultAssay(data.combined) <- "RNA"
 clusters <- table(data.combined[['integrated_snn_res.0.3']])
-clusters
 for (i in 0:(length(clusters)-1)){
   print(i)
   custom.GO(markers03[[i+1]]$Gene,i,"res03",rownames(data.combined))

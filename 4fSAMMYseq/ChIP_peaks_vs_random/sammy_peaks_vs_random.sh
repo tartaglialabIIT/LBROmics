@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# Paths: override via environment variables (defaults are relative placeholders).
+# Requires: bedtools, bigWigToBedGraph (UCSC), python3 + stats_peaks_vs_random.py
 set -euo pipefail
 
 # ============================================================
@@ -22,25 +24,25 @@ set -euo pipefail
 # ----------------------------
 # INPUT PATHS (from your convo)
 # ----------------------------
-SAMMY_DIR="/home/jonni/storage/SAMMY_SEQ/results_17_11_2025/comparisons/spp_mle"
+SAMMY_DIR="${SAMMY_DIR:-./spp_mle}"
 BW1="${SAMMY_DIR}/NPCwt_n1_S2SvsS3_mle.bigWig"
 BW2="${SAMMY_DIR}/NPCwt_n2_S2SvsS3_mle.bigWig"
 BW3="${SAMMY_DIR}/NPCwt_IRE_R3_S2SvsS3_mle.bigWig"
 
-H3K27AC_PEAKS="/mnt/storage/jonni/ChIP_seq_Bonev/fastq_files/results/bwa/merged_library/macs3/narrow_peak/consensus/H3K27ac/H3K27ac.consensus_peaks.bed"
-H3K4ME3_PEAKS="/mnt/storage/jonni/ChIP_seq_Bonev/fastq_files/results/bwa/merged_library/macs3/narrow_peak/consensus/H3K4me3/H3K4me3.consensus_peaks.bed"
-H3K9ME3_PEAKS="/mnt/storage/jonni/ChIP_seq_Bonev/fastq_files/results/bwa/merged_library/macs3/broad_peak/consensus/H3K9me3/H3K9me3.consensus_peaks.bed"
+H3K27AC_PEAKS="${H3K27AC_PEAKS:-./peaks/H3K27ac.consensus_peaks.bed}"
+H3K4ME3_PEAKS="${H3K4ME3_PEAKS:-./peaks/H3K4me3.consensus_peaks.bed}"
+H3K9ME3_PEAKS="${H3K9ME3_PEAKS:-./peaks/H3K9me3.consensus_peaks.bed}"
 
-GENOME_SIZES="/home/jonni/storage/ChIP_seq_Bonev/mm10.chrom.sizes.from_bam"
+GENOME_SIZES="${GENOME_SIZES:-./mm10.chrom.sizes.from_bam}"
 
 # mm10 FASTA for GC matching (bedtools nuc)
-MM10_FASTA="/mnt/storage/jonni/UCSC_mouse_genome/mm10.fa"
+MM10_FASTA="${MM10_FASTA:-./mm10.fa}"
 
 # optional blacklist (leave empty "" if none)
 BLACKLIST_BED=""
 
 # Output root
-OUTROOT="/home/jonni/storage/SAMMY_SEQ/sammy_vs_peaks_statsNEW"
+OUTROOT="${OUTROOT:-./sammy_vs_peaks_stats}"
 mkdir -p "$OUTROOT"
 
 # Randomization

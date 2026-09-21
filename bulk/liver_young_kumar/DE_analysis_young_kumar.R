@@ -1,6 +1,6 @@
-dir.create("/Users/jonathan/Desktop/IIT/Cerase_single_cell/bulk_RNA_seq/analysis_results_young_kumar/")
-wd <- "/Users/jonathan/Desktop/IIT/Cerase_single_cell/bulk_RNA_seq/analysis_results_young_kumar/"
-setwd(wd)
+# Outputs written under this folder
+dir.create("analysis_results", showWarnings = FALSE)
+setwd("analysis_results")
 
 my.fisher <- function(DE.1,DE.2,total_genes){
   
@@ -70,7 +70,7 @@ library(rtracklayer)
 library(readxl)
 
 # Read the gtf file to map ensembl IDs to gene names
-gtf <- rtracklayer::import('/Users/jonathan/Desktop/IIT/Cerase_single_cell/bulk_RNA_seq/Mus_musculus.GRCm38.98.gtf')
+gtf <- rtracklayer::import(Sys.getenv("LBROMICS_GTF", unset = "../ref/Mus_musculus.GRCm38.98.gtf"))
 gtf_df=as.data.frame(gtf)
 gtf_df <- gtf_df[,c("gene_id","gene_name")]
 gtf_df <- gtf_df[!duplicated(gtf_df), ]

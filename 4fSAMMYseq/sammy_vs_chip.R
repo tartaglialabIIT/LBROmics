@@ -23,8 +23,8 @@ suppressPackageStartupMessages({
 # ---------------------------
 # User inputs: change paths
 # ---------------------------
-wd <- "/Users/jfiorentino/Desktop/OneDrive - Fondazione Istituto Italiano Tecnologia/IIT/Cerase_single_cell/SAMMY-seq/"
-setwd(wd)
+sammy_root <- Sys.getenv("LBROMICS_SAMMY_ROOT", unset = ".")
+setwd(sammy_root)
 
 out_prefix <- "SAMMY_ChIP_figure"
 
@@ -233,7 +233,6 @@ ideo <- IdeogramTrack(chromosome = display_chr, genome = "mm10")
 gaxis <- GenomeAxisTrack()
 
 # Arrange the plot: ideogram, axis, SAMMY track and ChIP tracks stacked
-chip_tracks
 all_tracks <- c(list(ideo, gaxis,chip_tracks$H3K27ac,chip_tracks$H3K4me3, sammy_dt,chip_tracks$H3K9me3))#, chip_tracks)
 
 #all_tracks <- c(list(ideo, gaxis, sammy_dt), chip_tracks)
@@ -258,7 +257,6 @@ use_chrs <- intersect(preferred, available_chrs)
 if (length(use_chrs) == 0) use_chrs <- available_chrs
 
 message("Using chromosomes for genome-wide correlation: ", paste(use_chrs, collapse = ", "))
-bin_size
 genome_bins <- make_genome_bins(si, tilewidth = 50000, chromosomes = use_chrs)
 message("Number of genome-wide bins: ", length(genome_bins))
 

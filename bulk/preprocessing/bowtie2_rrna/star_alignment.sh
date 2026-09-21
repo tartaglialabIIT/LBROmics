@@ -5,5 +5,5 @@ samples=('a_1')
 
 for s in "${samples[@]}";
    do
-   /home/jonny/miniconda3/bin/STAR --readFilesCommand zcat --genomeDir /mnt/large/jfiorentino/Cerase_Data/bulkRNA_seq/GRCm38.98_genomeIndexes --peOverlapNbasesMin 10  --runThreadN 12 --readFilesIn /mnt/large/jfiorentino/Cerase_Data/bulkRNA_seq/raw_data/${s}/cutadapt_out/bowtie2/trimmed_${s}__1_unmapped_sorted_stillpaired.fastq.gz /mnt/large/jfiorentino/Cerase_Data/bulkRNA_seq/raw_data/${s}/cutadapt_out/bowtie2/trimmed_${s}__2_unmapped_sorted_stillpaired.fastq.gz --outFileNamePrefix trimmed_${s} --quantMode TranscriptomeSAM GeneCounts --outSAMtype BAM Unsorted SortedByCoordinate
+   STAR --readFilesCommand zcat --genomeDir ${LBROMICS_BULK_DATA:-.}/GRCm38.98_genomeIndexes --peOverlapNbasesMin 10  --runThreadN 12 --readFilesIn ${LBROMICS_BULK_DATA:-.}/raw_data/${s}/cutadapt_out/bowtie2/trimmed_${s}__1_unmapped_sorted_stillpaired.fastq.gz ${LBROMICS_BULK_DATA:-.}/raw_data/${s}/cutadapt_out/bowtie2/trimmed_${s}__2_unmapped_sorted_stillpaired.fastq.gz --outFileNamePrefix trimmed_${s} --quantMode TranscriptomeSAM GeneCounts --outSAMtype BAM Unsorted SortedByCoordinate
 done

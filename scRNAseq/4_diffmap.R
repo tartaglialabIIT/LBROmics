@@ -29,7 +29,6 @@ seuratObject[["dm"]] <- CreateDimReducObject(embeddings = tmp, key="DC_", assay=
 saveRDS(seuratObject,"./files/sub_data_combined_and_clustered_dm.rds")
 
 load("./files/DiffusionMap.RData")
-dm
 library(ggplot2)
 cellLabels <- sce$ident
 tmp <- data.frame(DC1 = eigenvectors(dm)[, 1],
