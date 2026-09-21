@@ -1,33 +1,7 @@
-# Bulk RNA-seq R packages (inventory — NOT a lockfile)
-#
-# Versions marked with [preprint] come from Fiorentino et al. bioRxiv
-# 10.64898/2026.03.30.714681 Methods. Versions marked [TODO] were not
-# recoverable from the repository or preprint.
-#
-# Authors: replace this file with `sessionInfo()` output and ideally an
-# `renv.lock` generated on the original analysis machine. Do NOT install
-# "latest" Bioconductor and assume results will match.
+# R packages used for bulk RNA-seq analyses (versions from manuscript Methods where known)
 
-# Core DE / plotting (used by bulk/deseq2_analysis.R)
-DESeq2==1.30.1          # [preprint]
-apeglm==TODO            # [TODO] required for lfcShrink(type="apeglm")
-rtracklayer==TODO       # [TODO] (1.66.0 cited for SAMMY viz stack — may differ)
-pheatmap==1.0.12        # [preprint]
-ggplot2==TODO           # [TODO]
-RColorBrewer==TODO      # [TODO]
-
-# Enrichment (bulk/webgestalt.R)
-WebGestaltR==0.4.5      # [preprint]
-dplyr==TODO             # [TODO]
-
-# Karyoplot (bulk/karyoplot_mouse.R)
-karyoploteR==1.20.3     # [preprint]
-biomaRt==TODO           # [TODO]
-regioneR==TODO          # [TODO]
-
-# Suggested install sketch (UNPINNED — for exploration only):
-#   if (!requireNamespace("BiocManager", quietly=TRUE)) install.packages("BiocManager")
-#   BiocManager::install(c("DESeq2","apeglm","rtracklayer","karyoploteR","biomaRt","regioneR"))
-#   install.packages(c("pheatmap","ggplot2","RColorBrewer","WebGestaltR","dplyr"))
-#
-# WARNING: Current Bioconductor releases will NOT match DESeq2 1.30.1.
+DESeq2==1.30.1
+WebGestaltR==0.4.5
+pheatmap==1.0.12
+karyoploteR==1.20.3
+# Also used: apeglm, rtracklayer, ggplot2, RColorBrewer, dplyr, biomaRt, regioneR

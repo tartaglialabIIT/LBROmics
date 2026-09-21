@@ -1,80 +1,35 @@
-workflow	software	version	source_of_version	required_or_optional	notes
-bulk_RNAseq_preprocess	cutadapt	4.1	preprint Methods	required	Not scripted in repo
-bulk_RNAseq_preprocess	Bowtie2	2.2.5	preprint Methods	required	rRNA depletion step; not scripted in repo
-bulk_RNAseq_preprocess	STAR	2.7.10a	preprint Methods	required	Align to Ensembl GRCm38.98; not scripted in repo
-bulk_RNAseq_preprocess	FastQC	TODO	preprint mentions FastQC (unversioned for A8 trim QC); later SAMMY section lists FastQC 0.12.1	optional	Confirm version used for A8
-bulk_RNAseq_DE	R	TODO	Multiple R versions used across paper; DESeq2 1.30.1 implies older Bioconductor than R 4.4.2 viz stack	required	Author sessionInfo needed
-bulk_RNAseq_DE	DESeq2	1.30.1	preprint Methods	required	Also used for liver analysis
-bulk_RNAseq_DE	apeglm	TODO	preprint Methods (lfcShrink type apeglm); version not stated	required	Needed by deseq2_analysis.R
-bulk_RNAseq_DE	rtracklayer	TODO (1.66.0 used elsewhere)	preprint lists 1.66.0 for SAMMY viz; bulk GTF import may differ	required	deseq2_analysis.R
-bulk_RNAseq_DE	pheatmap	1.0.12	preprint Methods	required	
-bulk_RNAseq_DE	ggplot2	TODO	used in scripts; version not stated	required	
-bulk_RNAseq_DE	RColorBrewer	TODO	used in scripts; version not stated	required	
-bulk_RNAseq_enrichment	WebGestaltR	0.4.5	preprint Methods	required	Web Gestalt 2019 databases
-bulk_RNAseq_enrichment	dplyr	TODO	used in webgestalt.R	required	
-bulk_RNAseq_karyoplot	karyoploteR	1.20.3	preprint Methods	required	
-bulk_RNAseq_karyoplot	biomaRt	TODO	used in karyoplot_mouse.R	required	Needs Ensembl connectivity
-bulk_RNAseq_karyoplot	regioneR	TODO	used in karyoplot_mouse.R	required	
-bulk_RNAseq_chr_enrichment	Python	TODO (notebook has 3.7.7)	preprint: scipy/statsmodels; notebook Python may differ	required	Script not in repo
-bulk_RNAseq_chr_enrichment	scipy	1.7.2	preprint Methods	required	fisher_exact
-bulk_RNAseq_chr_enrichment	statsmodels	0.13.1	preprint Methods	required	multipletests fdr_bh
-scRNAseq_preprocess	Cell Ranger	6.1.2	preprint Methods	required	GRCm38 reference
-scRNAseq_QC	Python	3.7.7	scRNAseq/1_QualityControl.ipynb metadata	required	kernel name xci-venv
-scRNAseq_QC	Scanpy	1.9.1	preprint Methods	required	
-scRNAseq_QC	numpy	TODO	imported in notebook	required	
-scRNAseq_QC	pandas	TODO	imported in notebook	required	
-scRNAseq_QC	matplotlib	TODO	imported in notebook	required	
-scRNAseq_Seurat	R	4.2.2	comment in scRNAseq/5_trajectory_inference_and_condiments.R	required	Confirm for all Seurat scripts
-scRNAseq_Seurat	Seurat	4.1.0	preprint Methods	required	
-scRNAseq_Seurat	clustree	TODO	used in 2_clustering.R	optional	
-scRNAseq_Seurat	mcclust	TODO	used in clustering/markers scripts	optional	
-scRNAseq_Seurat	patchwork	TODO	used in 3_cluster_markers.R	optional	
-scRNAseq_Seurat	openxlsx	TODO	used in 3_cluster_markers.R	optional	
-scRNAseq_Seurat	gprofiler2	0.2.1	preprint Methods (trajectory DEG enrichment)	required	also myfunctions.R
-scRNAseq_Seurat	rrvgo	TODO	myfunctions.R	optional	
-scRNAseq_Seurat	htmlwidgets	TODO	myfunctions.R	optional	
-scRNAseq_Seurat	rlist	TODO	myfunctions.R	optional	
-scRNAseq_trajectory	destiny	3.4.0	preprint Methods	required	
-scRNAseq_trajectory	slingshot	2.8.0	preprint Methods	required	
-scRNAseq_trajectory	condiments	1.6.0	preprint Methods	required	
-scRNAseq_trajectory	tradeSeq	1.8.0	preprint Methods	required	
-scRNAseq_trajectory	scry	1.6.0	preprint Methods	required	gene filtering for tradeSeq
-scRNAseq_trajectory	SingleCellExperiment	TODO	used in scripts	required	
-scRNAseq_trajectory	UpSetR	TODO	used in trajectory scripts	optional	
-scRNAseq_trajectory	viridis	TODO	used in trajectory scripts	optional	
-scRNAseq_trajectory	rgl	TODO	used in 5_trajectory_inference_and_condiments.R	optional	3D plots
-scRNAseq_velocity	kb_python	0.27.3	preprint Methods	required	Scripts not in repo
-scRNAseq_velocity	scvelo	0.2.5	preprint Methods	required	Scripts not in repo
-scRNAseq_velocity	cellrank	1.5.1	preprint Methods	required	Scripts not in repo
-scRNAseq_bulk_integration	limma	3.46.0	preprint Methods	required	Scripts not in repo
-4fSAMMY_pipeline	Nextflow	TODO	not in repo or preprint	required	Author must supply
-4fSAMMY_pipeline	nf-core/sammyseq	dev (unpinned)	preprint Methods URL nf-co.re/sammyseq/dev/	required	Need git commit; compartments_subworkflow branch also cited
-4fSAMMY_pipeline	CALDER2	TODO	preprint Methods	required	Via sammyseq compartmentalization
-4fSAMMY_viz	R	4.4.2	preprint Methods	required	Gviz/rtracklayer visualization stack
-4fSAMMY_viz	Gviz	1.50.0	preprint Methods	required	Script for metaprofiles not in repo
-4fSAMMY_viz	rtracklayer	1.66.0	preprint Methods	required	
-4fSAMMY_viz	tidyverse	TODO	Barplot_DiffSolGenes.R	required	
-4fSAMMY_viz	GenomicRanges	TODO	TPM_DSR.R	required	
-4fSAMMY_viz	dplyr	TODO	TPM_DSR.R	required	
-4fSAMMY_viz	tidyr	TODO	TPM_DSR.R	required	
-4fSAMMY_viz	ggplot2	TODO	TPM_DSR.R	required	
-4fSAMMY_viz	ggsignif	TODO	TPM_DSR.R	required	
-4fSAMMY_viz	gprofiler2	0.2.4	preprint Methods (DSR/compartment GO)	required	Scripts not fully deposited
-4fSAMMY_expression	Salmon	TODO	preprint Methods (TPM); version not stated	required	Expected merged TPM matrix path in TPM_DSR.R
-4fSAMMY_QC	FastQC	0.12.1	preprint Methods	optional	
-4fSAMMY_QC	MultiQC	1.31	preprint Methods	optional	
-ChIP_seq_reprocess	nf-core/chipseq	TODO	preprint Methods (version not stated)	required	Scripts/config not in repo
-ChIP_seq_reprocess	MACS2	TODO	via nf-core/chipseq defaults	required	
-ChIP_seq_reprocess	EDD	TODO	broad H3K9me3 peaks per Wang et al.	required	
-ChIP_seq_signal	BEDTools	TODO	preprint Methods	required	Scripts not in repo
-ChIP_seq_signal	bigWigToBedGraph	TODO	UCSC kent utils; preprint Methods	required	Scripts not in repo
-reference	Ensembl GTF	GRCm38.98	deseq2_analysis.R + preprint	required	
-reference	UCSC/mm10 GTF	mm10	TPM_DSR.R + karyoploteR genome=mm10	required	
-4fSAMMY_pipeline	Nextflow	24.10.4	reproducibility/environments/nextflow_pins.env (from nextflow.log)	required	
-4fSAMMY_pipeline	nf-core/sammyseq	dev @ fa6f6ffeb3	nextflow.log / nextflow_pins.env	required	compartments_subworkflow commit still to confirm on server
-4fSAMMY_pipeline	executor profile	docker	cmd_to_run.sh / nextflow_pins.env	required	
-scRNAseq_QC	Python	3.7.7	python_xci-venv/pyvenv.cfg	required	
-scRNAseq_QC	scanpy	1.9.1	python_xci-venv/requirements.txt	required	
-scRNAseq_velocity	cellrank	1.5.1	python_xci-venv/requirements.txt	required	
-scRNAseq_velocity	scvelo	0.2.5	python_xci-venv/requirements.txt	required	
-scRNAseq_velocity	kb-python	TODO (0.27.3 preprint)	kb_script.sh uses velo-venv on server	required	server velo-venv freeze still useful
+workflow	software	version	source
+bulk_RNAseq	cutadapt	4.1	manuscript Methods
+bulk_RNAseq	Bowtie2	2.2.5	manuscript Methods
+bulk_RNAseq	STAR	2.7.10a	manuscript Methods
+bulk_RNAseq	DESeq2	1.30.1	manuscript Methods
+bulk_RNAseq	WebGestaltR	0.4.5	manuscript Methods
+bulk_RNAseq	pheatmap	1.0.12	manuscript Methods
+bulk_RNAseq	karyoploteR	1.20.3	manuscript Methods
+bulk_RNAseq	scipy	1.7.2	manuscript Methods (chromosomal enrichment)
+bulk_RNAseq	statsmodels	0.13.1	manuscript Methods (chromosomal enrichment)
+scRNAseq	Cell Ranger	6.1.2	manuscript Methods
+scRNAseq	Python	3.7.7	envs/python_xci-venv/pyvenv.cfg
+scRNAseq	Scanpy	1.9.1	manuscript Methods / envs/python_xci-venv
+scRNAseq	Seurat	4.1.0	manuscript Methods
+scRNAseq	R	4.2.2	comment in trajectory script
+scRNAseq	destiny	3.4.0	manuscript Methods
+scRNAseq	slingshot	2.8.0	manuscript Methods
+scRNAseq	condiments	1.6.0	manuscript Methods
+scRNAseq	tradeSeq	1.8.0	manuscript Methods
+scRNAseq	scry	1.6.0	manuscript Methods
+scRNAseq	gprofiler2	0.2.1	manuscript Methods
+scRNAseq	limma	3.46.0	manuscript Methods
+scRNAseq	kb_python	0.27.3	manuscript Methods
+scRNAseq	scvelo	0.2.5	manuscript Methods / envs/python_xci-venv
+scRNAseq	cellrank	1.5.1	manuscript Methods / envs/python_xci-venv
+4fSAMMYseq	Nextflow	24.10.4	envs/nextflow_pins.env
+4fSAMMYseq	nf-core/sammyseq	dev @ fa6f6ffeb3	envs/nextflow_pins.env
+4fSAMMYseq	R	4.4.2	manuscript Methods (visualization)
+4fSAMMYseq	Gviz	1.50.0	manuscript Methods
+4fSAMMYseq	rtracklayer	1.66.0	manuscript Methods
+4fSAMMYseq	gprofiler2	0.2.4	manuscript Methods
+4fSAMMYseq	FastQC	0.12.1	manuscript Methods
+4fSAMMYseq	MultiQC	1.31	manuscript Methods
+reference	Ensembl annotation	GRCm38.98	manuscript Methods
+reference	genome build	mm10	manuscript Methods
