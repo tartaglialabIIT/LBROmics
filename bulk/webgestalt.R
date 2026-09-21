@@ -1,8 +1,29 @@
+#!/usr/bin/env Rscript
 ### make sure you have WebGestaltR installed in your system
+###
+### Paths: defaults are relative to this script's directory (bulk/).
+### Override with env LBROMICS_BULK_DIR / LBROMICS_WEBGESTALT_OUTDIR or:
+###   Rscript webgestalt.R --de-und deseq2_results_mESC.txt --de-diff deseq2_results_NPC.txt
+###
 library("WebGestaltR")
 library("dplyr")
 
 options(bitmapType='cairo')
+
+args <- commandArgs(trailingOnly = TRUE)
+get_arg <- function(flag, default = NULL) {
+  i <- match(flag, args)
+  if (!is.na(i) && i < length(args)) return(args[[i + 1]])
+  default
+}
+script_dir <- (function() {
+  cmd <- commandArgs(trailingOnly = FALSE)
+  f <- sub("^--file=", "", cmd[grep("^--file=", cmd)])
+  if (length(f) == 1) return(dirname(normalizePath(f)))
+  getwd()
+})()
+bulk_dir <- Sys.getenv("LBROMICS_BULK_DIR", unset = script_dir)
+outdir_root <- Sys.getenv("LBROMICS_WEBGESTALT_OUTDIR", unset = file.path(bulk_dir, "analysis_results"))
 
 ### creates output directories if they do not exist
 make.dir <- function(fp) {
@@ -103,8 +124,8 @@ CATEGORIES = c("geneontology_Biological_Process","geneontology_Biological_Proces
 ### before launching the script, create a deseq2 folder (usually i put in ../files/deseq2/) in which I put the "GO/webgestalt/" folder, which in turns contain the
 ### ORA and GSEA folders
 
-dir.deseq = "/mnt/large/jfiorentino/Cerase_Data/deseq2"
-dir.create(dir.deseq)
+dir.deseq = file.path(outdir_root, "webgestalt")
+dir.create(dir.deseq, showWarnings = FALSE, recursive = TRUE)
 
 
 ### specify the ORA folder and create one folder for each category. When you will perform ORA analysis, the result folder/files for each category will be put
@@ -122,7 +143,7 @@ mapply(make.dir, OUT.DIR.GSEA)
 
 ### here you put the code for the differential expression. At the end, you have to produce, for each comparison, a table containing the DE results with column that
 ### annotates the genes based on the differential expression status (see oraLaunch documentation). 
-#wt_mutant.annotated.sc <-read.csv("/mnt/large/jfiorentino/Cerase_Data/scRNA_seq/in_silico_bulk_DE/res_tot_DESeq2_scparams_with_IDs.csv")
+#wt_mutant.annotated.sc <-read.csv("PATH/TO/res_tot_DESeq2_scparams_with_IDs.csv")
 #print(head(wt_mutant.annotated.sc))
 #wt_mutant.annotated.sc$DEREG_FLAG <- "NO"
 #wt_mutant.annotated.sc[which(wt_mutant.annotated.sc$log2FoldChange>0.58 & wt_mutant.annotated.sc$padj<0.05),]$DEREG_FLAG <- "UP"
@@ -162,7 +183,8 @@ mapply(make.dir, OUT.DIR.GSEA)
 
 ### here you put the code for the differential expression. At the end, you have to produce, for each comparison, a table containing the DE results with column that
 ### annotates the genes based on the differential expression status (see oraLaunch documentation). 
-wt_mutant.annotated.und <-read.csv("/mnt/large/jfiorentino/Cerase_Data/bulkRNA_seq/DE_analysis_results/deseq2_results_mESC.txt",sep = '\t')
+de_und_path <- get_arg("--de-und", file.path(bulk_dir, "deseq2_results_mESC.txt"))
+wt_mutant.annotated.und <- read.csv(de_und_path, sep = '\t')
 wt_mutant.annotated.und$DEREG_FLAG <- "NO"
 wt_mutant.annotated.und[which(wt_mutant.annotated.und$log2FoldChange>1.0 & wt_mutant.annotated.und$padj<0.01),]$DEREG_FLAG <- "UP"
 wt_mutant.annotated.und[which(wt_mutant.annotated.und$log2FoldChange< -1.0 & wt_mutant.annotated.und$padj<0.01),]$DEREG_FLAG  <- "DOWN"
@@ -190,7 +212,8 @@ gsea.results.und <- gseaEnrich(wt_mutant.annotated.und,"WT_vs_MUTANT_bulk_und",s
 
 ### here you put the code for the differential expression. At the end, you have to produce, for each comparison, a table containing the DE results with column that
 ### annotates the genes based on the differential expression status (see oraLaunch documentation). 
-wt_mutant.annotated.diff <- read.csv("/mnt/large/jfiorentino/Cerase_Data/bulkRNA_seq/DE_analysis_results/deseq2_results_NPC.txt",sep = '\t')
+de_diff_path <- get_arg("--de-diff", file.path(bulk_dir, "deseq2_results_NPC.txt"))
+wt_mutant.annotated.diff <- read.csv(de_diff_path, sep = '\t')
 wt_mutant.annotated.diff$DEREG_FLAG <- "NO"
 wt_mutant.annotated.diff[which(wt_mutant.annotated.diff$log2FoldChange>1.0 & wt_mutant.annotated.diff$padj<0.01),]$DEREG_FLAG <- "UP"
 wt_mutant.annotated.diff[which(wt_mutant.annotated.diff$log2FoldChange< -1.0 & wt_mutant.annotated.diff$padj<0.01),]$DEREG_FLAG  <- "DOWN"

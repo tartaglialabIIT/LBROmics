@@ -1,10 +1,13 @@
+#!/usr/bin/env Rscript
 library(Seurat) 
 library(SingleCellExperiment)
 library(destiny)
 
-wd <- "/Users/jonathan/Desktop/IIT/Cerase_single_cell/ANALYSIS/Seurat_analysis/"
-
-#wd <- "/mnt/large/jfiorentino/Cerase_Data/scRNA_seq/destiny_diffmap/"
+# Set LBROMICS_SCRNA_ROOT to the Seurat analysis directory.
+wd <- Sys.getenv("LBROMICS_SCRNA_ROOT", unset = "")
+if (!nzchar(wd)) wd <- getwd()
+# Optional alternate working directory historically used for destiny runs:
+# wd <- Sys.getenv("LBROMICS_DIFFMAP_DIR", unset = wd)
 
 setwd(wd)
 

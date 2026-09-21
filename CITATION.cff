@@ -1,0 +1,93 @@
+cff-version: 1.2.0
+title: "LBROmics: analysis code for LBR nucleoplasmic domains, X-chromosome solubility and nuclear organization"
+message: "If you use this software, please cite the manuscript below and this repository."
+type: software
+license: MIT
+repository-code: "https://github.com/tartaglialabIIT/LBROmics"
+url: "https://github.com/tartaglialabIIT/LBROmics"
+authors:
+  - family-names: Fiorentino
+    given-names: Jonathan
+  - family-names: Perotti
+    given-names: Irene
+  - family-names: Ruiz Blanes
+    given-names: Nerea
+  - family-names: Rosti
+    given-names: Valentina
+  - family-names: Sigala
+    given-names: Ioanna
+  - family-names: Nikolakaki
+    given-names: Eleni
+  - family-names: Colantoni
+    given-names: Alessio
+  - family-names: D'Elia
+    given-names: Annunziata
+  - family-names: Massari
+    given-names: Roberto
+  - family-names: Scavizzi
+    given-names: Ferdinando
+  - family-names: Raspa
+    given-names: Marcello
+  - family-names: Ascolani
+    given-names: Michela
+  - family-names: Humphreys
+    given-names: Neil E.
+  - family-names: Giannakouros
+    given-names: Thomas
+  - family-names: Guttman
+    given-names: Mitchell
+  - family-names: Lanzuolo
+    given-names: Chiara
+  - family-names: Tartaglia
+    given-names: Gian Gaetano
+  - family-names: Cerase
+    given-names: Andrea
+preferred-citation:
+  type: article
+  title: "LBR nucleoplasmic domains regulate X-chromosome solubility and nuclear organization"
+  authors:
+    - family-names: Fiorentino
+      given-names: Jonathan
+    - family-names: Perotti
+      given-names: Irene
+    - family-names: Ruiz Blanes
+      given-names: Nerea
+    - family-names: Rosti
+      given-names: Valentina
+    - family-names: Sigala
+      given-names: Ioanna
+    - family-names: Nikolakaki
+      given-names: Eleni
+    - family-names: Colantoni
+      given-names: Alessio
+    - family-names: D'Elia
+      given-names: Annunziata
+    - family-names: Massari
+      given-names: Roberto
+    - family-names: Scavizzi
+      given-names: Ferdinando
+    - family-names: Raspa
+      given-names: Marcello
+    - family-names: Ascolani
+      given-names: Michela
+    - family-names: Humphreys
+      given-names: Neil E.
+    - family-names: Giannakouros
+      given-names: Thomas
+    - family-names: Guttman
+      given-names: Mitchell
+    - family-names: Lanzuolo
+      given-names: Chiara
+    - family-names: Tartaglia
+      given-names: Gian Gaetano
+    - family-names: Cerase
+      given-names: Andrea
+  doi: "10.64898/2026.03.30.714681"
+  url: "https://doi.org/10.64898/2026.03.30.714681"
+  publisher: bioRxiv
+  year: 2026
+# TODO: after tagging a release, archive on Zenodo and add:
+# identifiers:
+#   - type: doi
+#     value: "10.5281/zenodo.TODO"
+#     description: Zenodo archived release of this repository

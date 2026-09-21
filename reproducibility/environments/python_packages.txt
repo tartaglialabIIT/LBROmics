@@ -1,0 +1,26 @@
+# scRNA-seq / related Python dependencies
+# Source: notebook metadata + preprint Methods
+# This is NOT a complete pip freeze from xci-venv.
+
+# From scRNAseq/1_QualityControl.ipynb metadata:
+#   python_version = 3.7.7
+#   kernelspec.name = xci-venv
+
+scanpy==1.9.1           # [preprint]
+numpy==TODO
+pandas==TODO
+matplotlib==TODO
+
+# Velocity / CellRank (scripts not in repo; preprint Methods)
+kb-python==0.27.3       # [preprint]
+scvelo==0.2.5           # [preprint]
+cellrank==1.5.1         # [preprint]
+
+# Chromosomal enrichment (script not in repo; preprint Methods)
+scipy==1.7.2            # [preprint]
+statsmodels==0.13.1     # [preprint]
+
+# Authors: from the original xci-venv (and any velocity env), run:
+#   python --version
+#   pip freeze > reproducibility/environments/xci-venv.pipfreeze.txt
+#   conda env export --from-history > reproducibility/environments/xci-venv.from-history.yml

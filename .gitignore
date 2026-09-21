@@ -1,0 +1,62 @@
+# Local / machine-specific
+.DS_Store
+*.swp
+*~
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.conda/
+
+# Secrets / credentials
+*credentials*
+*.pem
+*.key
+
+# Large raw / intermediate omics data (keep deposited small result tables)
+**/raw_data/
+**/raw_counts_NPC.txt
+**/raw_counts_mESC.txt
+**/ref/*.gtf
+**/ref/*.gtf.gz
+**/*.bam
+**/*.bai
+**/*.fastq
+**/*.fastq.gz
+**/*.fq.gz
+**/CellRanger*/
+**/cellranger*/
+
+# Analysis outputs (regenerable)
+**/analysis_results/
+**/plots/
+**/plots_JULY_2023/
+**/files_JULY_2023/
+**/RDS_objects/
+**/FIGURES/
+**/FINAL_PLOTS*/
+demo/output/
+!demo/expected_output/
+
+# Nextflow / workflow work dirs
+.work/
+work/
+.nextflow/
+.nextflow.log*
+results/
+null/
+
+# Packaged environments (local)
+renv/library/
+renv/staging/
+packrat/lib*/
+
+# OS / IDE
+.idea/
+.vscode/

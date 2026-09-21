@@ -1,7 +1,18 @@
+#!/usr/bin/env Rscript
 # ============================================================
 # TPM of genes overlapping DSRs (SAMMY-seq region-based method)
 # ============================================================
-
+#
+# Usage:
+#   Rscript TPM_DSR.R \
+#     --rdata path/to/S2SvsS3_MUT_NPCvsWT_NPC_analysis.rds \
+#     --gtf path/to/mm10.gtf \
+#     --tpm path/to/salmon.merged.gene_tpm.tsv \
+#     --outdir ./FIGURES
+#
+# Or set LBROMICS_SAMMY_ROOT to a directory containing the relative paths
+# used previously (differential_solubility/rdata/..., UCSC_mouse_genome/mm10.gtf,
+# bulk_rnaseq_count_matrices/salmon_TPM/...).
 
 library(GenomicRanges)
 library(rtracklayer)
@@ -10,15 +21,21 @@ library(tidyr)
 library(ggplot2)
 library(ggsignif)
 
-# -----------------------
-# Paths
-# -----------------------
-wd <- "/Users/jfiorentino/Desktop/OneDrive - Fondazione Istituto Italiano Tecnologia/IIT/Cerase_single_cell/SAMMY-seq/"
-setwd(wd)
+args <- commandArgs(trailingOnly = TRUE)
+get_arg <- function(flag, default = NULL) {
+  i <- match(flag, args)
+  if (!is.na(i) && i < length(args)) return(args[[i + 1]])
+  default
+}
 
-rdata_file <- "./differential_solubility/rdata/S2SvsS3_MUT_NPCvsWT_NPC_analysis.rds"
-gtf_file   <- "./UCSC_mouse_genome/mm10.gtf"
-tpm_file   <- "./bulk_rnaseq_count_matrices/salmon_TPM/salmon.merged.gene_tpm.tsv"
+root <- Sys.getenv("LBROMICS_SAMMY_ROOT", unset = getwd())
+rdata_file <- get_arg("--rdata", file.path(root, "differential_solubility/rdata/S2SvsS3_MUT_NPCvsWT_NPC_analysis.rds"))
+gtf_file   <- get_arg("--gtf", file.path(root, "UCSC_mouse_genome/mm10.gtf"))
+tpm_file   <- get_arg("--tpm", file.path(root, "bulk_rnaseq_count_matrices/salmon_TPM/salmon.merged.gene_tpm.tsv"))
+outdir     <- get_arg("--outdir", file.path(root, "FIGURES"))
+
+stopifnot(file.exists(rdata_file), file.exists(gtf_file), file.exists(tpm_file))
+dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
 
 # -----------------------
 # Load SAMMY-seq DSRs
@@ -159,7 +176,8 @@ table(tpm_long$Sample)
 # -----------------------
 # Boxplot
 # -----------------------
-pdf("./FIGURES/new_plot_TPM_DSR.pdf",height = 4,width = 7)
+out_pdf <- file.path(outdir, "new_plot_TPM_DSR.pdf")
+pdf(out_pdf, height = 4, width = 7)
 p_all <- ggplot(tpm_long, aes(x = Group, y = log2TPM, fill = Group)) +
   geom_boxplot(
     width = 0.65,
@@ -176,9 +194,6 @@ p_all <- ggplot(tpm_long, aes(x = Group, y = log2TPM, fill = Group)) +
       "S3\nUP", ""
     )
   )+
-#  scale_x_discrete(
-#    labels = rep(c("S2S UP", "S2S DOWN", "S3 DOWN", "S3 UP"), each = 2)
-#  ) +
   scale_y_continuous(limits = c(-1, 15), expand = c(0, 0)) +
   theme_bw(base_size = 16) +
   theme(
@@ -203,6 +218,7 @@ p_all <- ggplot(tpm_long, aes(x = Group, y = log2TPM, fill = Group)) +
 
 print(p_all)
 dev.off()
+message("Wrote ", normalizePath(out_pdf))
 # -----------------------
 # Wilcoxon tests
 # -----------------------
