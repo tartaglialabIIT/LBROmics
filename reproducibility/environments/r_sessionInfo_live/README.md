@@ -1,27 +1,19 @@
-# Live R `sessionInfo()` dumps
+# Live R `sessionInfo()` dumps (current machine — secondary)
 
-Captured by loading `library()` imports used in repository R scripts (scripts were **not** fully executed).
+**Not for manuscript version claims.** Use [`../r_sessionInfo_manuscript/`](../r_sessionInfo_manuscript/) for Methods-aligned versions.
+
+These files were produced on 2026-09-21 by loading `library()` imports on the author laptop
+(R **4.4.2** / Bioconductor **3.20** / macOS Sequoia arm64). Many package versions **differ** from the preprint Methods
+(e.g. DESeq2 1.46.0 vs **1.30.1**; Seurat 5.4.0 vs **4.1.0**). See [`../manuscript_vs_current_machine.tsv`](../manuscript_vs_current_machine.tsv).
+
+Kept only as a smoke-test / modern install aid. `destiny` failed to load (missing `smoother`).
 
 | File | Scripts covered |
 |------|-----------------|
-| `bulk_RNAseq_DESeq2_sessionInfo.txt` | `bulk/deseq2_analysis.R`, `bulk/clone_B3/deseq2_analysis_cloneB3_context.R` |
+| `bulk_RNAseq_DESeq2_sessionInfo.txt` | `bulk/deseq2_analysis.R`, clone B3 DESeq2 |
 | `bulk_RNAseq_WebGestalt_sessionInfo.txt` | `bulk/webgestalt.R` |
-| `bulk_RNAseq_karyoploteR_sessionInfo.txt` | `bulk/karyoplot_mouse.R`, `bulk/clone_B3/karyoplot_mouseB3.R` |
-| `bulk_RNAseq_liver_sessionInfo.txt` | `bulk/liver_young_kumar/DE_analysis_young_kumar.R` |
-| `sammyseq_visualization_sessionInfo.txt` | `4fSAMMYseq/*.R` (Gviz/TPM/compartments/ChIP viz imports) |
-| `scRNAseq_Seurat_stack_sessionInfo.txt` | `scRNAseq/2_`…`7_`, `myfunctions.R` |
-| `scRNAseq_insilico_bulk_sessionInfo.txt` | `scRNAseq/in_silico_bulk_DE/DE_in_silico_bulk.R` |
-
-Companion `*_packages.csv` files list Package/Version for requested packages that were installed.
-
-## Important caveats
-
-1. These dumps are from the **author laptop at capture time** (see headers: R version, Bioconductor, host OS).
-2. They are **not** bit-for-bit recreations of the manuscript environments (Methods cite older stacks such as DESeq2 1.30.1 / Seurat 4.1.0 / R 4.2.2 for trajectories).
-3. Prefer replacing with `sessionInfo()` from the **original analysis machines** when available.
-4. Re-generate with:
-
-```bash
-Rscript reproducibility/environments/r_sessionInfo_live/capture_workflow_sessionInfo.R \
-  WORKFLOW_NAME outfile.txt packages.csv pkg1 pkg2 ...
-```
+| `bulk_RNAseq_karyoploteR_sessionInfo.txt` | karyoplot scripts |
+| `bulk_RNAseq_liver_sessionInfo.txt` | liver Young/Kumar DE |
+| `sammyseq_visualization_sessionInfo.txt` | `4fSAMMYseq/` viz imports |
+| `scRNAseq_Seurat_stack_sessionInfo.txt` | `scRNAseq/2_`…`7_` |
+| `scRNAseq_insilico_bulk_sessionInfo.txt` | in silico bulk DE |

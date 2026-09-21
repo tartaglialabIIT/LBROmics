@@ -1,0 +1,50 @@
+# Manuscript Methods environment inventory (NOT a live sessionInfo dump)
+# Workflow: scRNA-seq (Seurat clustering → destiny/slingshot/condiments/tradeSeq/gProfiler; limma integration)
+# Source: Fiorentino et al. bioRxiv doi:10.64898/2026.03.30.714681 Methods
+#        + comment in scRNAseq/5_trajectory_inference_and_condiments.R ("runs in R4.2.2")
+# Generated: 2026-09-21 (aligned to manuscript; replace with author sessionInfo when available)
+#
+# R version: 4.2.2 (script comment for trajectory stack)
+# Platform / OS: not stated
+
+----- packages with versions stated in Methods -----
+Seurat_4.1.0
+destiny_3.4.0
+slingshot_2.8.0
+condiments_1.6.0
+tradeSeq_1.8.0
+scry_1.6.0
+gprofiler2_0.2.1          # trajectory DEG enrichment
+limma_3.46.0              # in silico bulk integration (voom)
+
+----- also used in repo scripts (version not stated in Methods) -----
+SingleCellExperiment
+ggplot2
+cowplot
+dplyr
+tidyr
+clustree
+mcclust
+repr
+UpSetR
+pheatmap
+gridExtra
+fgsea
+msigdbr
+knitr
+rlist
+patchwork
+openxlsx
+rrvgo
+htmlwidgets
+BiocParallel
+DESeq2                    # in_silico_bulk_DE.R (version for this step not restated; Methods cite 1.30.1 for bulk)
+scran                     # in_silico_bulk_DE.R
+
+----- related non-R (Methods) -----
+Cell_Ranger_6.1.2
+Python_3.7.7              # Scanpy QC notebook
+Scanpy_1.9.1
+kb_python_0.27.3
+scvelo_0.2.5
+cellrank_1.5.1

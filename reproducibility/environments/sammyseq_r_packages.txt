@@ -1,0 +1,10 @@
+# 4f-SAMMY-seq visualization R packages — versions from manuscript Methods (canonical)
+# R 4.4.2 (Methods)
+# See also r_sessionInfo_manuscript/sammyseq_viz_sessionInfo_manuscript.txt
+
+Gviz==1.50.0
+rtracklayer==1.66.0
+gprofiler2==0.2.4
+# Used in scripts; version not stated in Methods:
+# GenomicRanges, GenomicFeatures, tidyverse/dplyr/tidyr/ggplot2, ggsignif,
+# preprocessCore, data.table, pheatmap, viridis, RColorBrewer

@@ -3,11 +3,23 @@
 | File | Description |
 |------|-------------|
 | `data_accessions.tsv` | GEO accessions linked to repository directories |
-| `software_versions.tsv` | Software versions used in the study |
+| `software_versions.tsv` | Software versions used in the study (Methods) |
 | `HOW_TO_RUN.md` | Suggested execution order |
-| `environments/` | Python requirements, Nextflow pins, R package inventories |
+| `environments/` | Python requirements, Nextflow pins, R inventories |
 
-Python environment recreation (approximate):
+## R environments (manuscript-aligned)
+
+**Use these for paper-faithful dependency claims:**
+
+- [`environments/r_sessionInfo_manuscript/`](environments/r_sessionInfo_manuscript/) — Methods versions per workflow (bulk / scRNA-seq / SAMMY viz)
+- [`environments/manuscript_vs_current_machine.tsv`](environments/manuscript_vs_current_machine.tsv) — differences vs a 2026-09-21 laptop smoke-test
+- [`environments/bulk_r_packages.txt`](environments/bulk_r_packages.txt), [`environments/scrnaseq_r_packages.txt`](environments/scrnaseq_r_packages.txt)
+
+The preprint used **multiple** R stacks (older Bioconductor for DESeq2 1.30.1; R 4.2.2 for Seurat/trajectories; R 4.4.2 for SAMMY Gviz). A single lockfile would be misleading.
+
+Optional secondary dumps from loading imports on a current laptop (R 4.4.2 / Bioc 3.20) are in [`environments/r_sessionInfo_live/`](environments/r_sessionInfo_live/) — **do not cite those versions as manuscript Methods**.
+
+## Python
 
 ```bash
 python3.7 -m venv xci-venv
@@ -15,11 +27,4 @@ source xci-venv/bin/activate
 pip install -r environments/python_xci-venv/requirements.txt
 ```
 
-
-## Live R `sessionInfo()` dumps
-
-Directory [`environments/r_sessionInfo_live/`](environments/r_sessionInfo_live/) contains **live** `sessionInfo()` captures obtained by loading the `library()` imports used in each workflow's R scripts on the author laptop (R 4.4.2 / Bioconductor 3.20, macOS arm64, 2026-09-21).
-
-These are useful for reviewers installing a **modern working stack**. They are **not** bit-for-bit recreations of the manuscript environments (Methods cite older versions such as DESeq2 1.30.1 and Seurat 4.1.0). Prefer replacing with dumps from the original analysis machines when available.
-
-Note: `destiny` failed to load here (missing CRAN dependency `smoother` for this R version); DiffusionMap-related scripts need that package resolved separately.
+Scanpy/scvelo/cellrank pins also follow manuscript Methods (see `software_versions.tsv`).

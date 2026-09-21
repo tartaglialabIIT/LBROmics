@@ -1,0 +1,17 @@
+package	manuscript_version	current_machine_live_dump	workflow	status
+DESeq2	1.30.1	1.46.0	bulk_RNAseq / scRNAseq_insilico	MISMATCH — do not cite live dump for paper
+WebGestaltR	0.4.5	0.4.6	bulk_RNAseq	MISMATCH (minor)
+karyoploteR	1.20.3	1.32.0	bulk_RNAseq	MISMATCH
+pheatmap	1.0.12	(installed; see live dump)	bulk_RNAseq	check live CSV
+Seurat	4.1.0	5.4.0	scRNAseq	MISMATCH — major
+destiny	3.4.0	FAILED TO LOAD (smoother missing)	scRNAseq	unavailable on capture machine
+slingshot	2.8.0	2.14.0	scRNAseq	MISMATCH
+tradeSeq	1.8.0	1.20.0	scRNAseq	MISMATCH
+condiments	1.6.0	(loaded; see live dump)	scRNAseq	likely newer than Methods
+scry	1.6.0	(loaded; see live dump)	scRNAseq	likely newer than Methods
+gprofiler2	0.2.1 (traj) / 0.2.4 (SAMMY)	0.2.4	scRNAseq / sammy	traj should be 0.2.1
+limma	3.46.0	(loaded; see live dump)	scRNAseq	check live CSV
+Gviz	1.50.0	1.50.0	sammyseq_viz	MATCH
+rtracklayer	1.66.0	1.66.0	sammyseq_viz	MATCH
+R	4.2.2 (scRNA) / 4.4.2 (SAMMY viz)	4.4.2 only	all live dumps	live dumps are SAMMY-era R only
+Bioconductor	~3.12 bulk; ~3.15–3.16 scRNA; 3.20 SAMMY	3.20	all live dumps	live dumps are Bioc 3.20 only

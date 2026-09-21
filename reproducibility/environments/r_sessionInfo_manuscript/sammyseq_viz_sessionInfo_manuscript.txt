@@ -1,0 +1,29 @@
+# Manuscript Methods environment inventory (NOT a live sessionInfo dump)
+# Workflow: 4f-SAMMY-seq visualization (Gviz tracks, DiffSol/TPM plots, compartment GO)
+# Source: Fiorentino et al. bioRxiv doi:10.64898/2026.03.30.714681 Methods
+# Generated: 2026-09-21 (aligned to manuscript; replace with author sessionInfo when available)
+#
+# R version: 4.4.2 (Methods — SAMMY visualization)
+# Platform / OS: not stated
+
+----- packages with versions stated in Methods -----
+Gviz_1.50.0
+rtracklayer_1.66.0
+gprofiler2_0.2.4          # DSR / compartment GO enrichment
+
+----- also used in repo scripts (version not stated in Methods) -----
+GenomicRanges
+GenomicFeatures
+tidyverse / dplyr / tidyr / ggplot2
+ggsignif
+preprocessCore
+data.table
+pheatmap
+viridis
+RColorBrewer
+
+----- related pipeline (Methods / recovered pins) -----
+Nextflow_24.10.4                    # from analysis nextflow.log (not in Methods text)
+nf-core/sammyseq_dev@fa6f6ffeb3     # recovered pin; Methods cite /dev/ + compartments_subworkflow
+FastQC_0.12.1
+MultiQC_1.31

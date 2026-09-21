@@ -1,0 +1,37 @@
+# Manuscript Methods environment inventory (NOT a live sessionInfo dump)
+# Workflow: bulk RNA-seq (DESeq2, WebGestaltR, karyoploteR, liver Young/Kumar DE)
+# Source: Fiorentino et al. bioRxiv doi:10.64898/2026.03.30.714681 Methods
+# Generated: 2026-09-21 (aligned to manuscript; replace with author sessionInfo when available)
+#
+# R version: not stated in Methods for this stack
+# Implied: Bioconductor ~3.12 (DESeq2 1.30.1) / typically R 4.0.x
+# Platform / OS: not stated (scripts use macOS and Linux absolute paths)
+
+----- packages with versions stated in Methods -----
+DESeq2_1.30.1
+WebGestaltR_0.4.5
+pheatmap_1.0.12
+karyoploteR_1.20.3
+
+----- also used in repo scripts (version not stated in Methods) -----
+apeglm          # lfcShrink(type="apeglm")
+rtracklayer     # GTF import
+ggplot2
+RColorBrewer
+dplyr
+biomaRt         # karyoplot
+regioneR        # karyoplot
+EnhancedVolcano # clone B3 / DE plots
+ggpubr
+ggplotify
+readxl          # liver / Young metadata
+plyr
+ggrepel
+VennDiagram
+
+----- related non-R (Methods) -----
+cutadapt_4.1
+Bowtie2_2.2.5
+STAR_2.7.10a
+scipy_1.7.2           # chromosomal enrichment (Python)
+statsmodels_0.13.1    # chromosomal enrichment (Python)

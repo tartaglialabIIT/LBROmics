@@ -1,5 +1,6 @@
-# R packages used for scRNA-seq analyses (versions from manuscript Methods where known)
-# Trajectory scripts note R 4.2.2
+# scRNA-seq R packages — versions from manuscript Methods (canonical)
+# Trajectory scripts: R 4.2.2
+# See also r_sessionInfo_manuscript/scRNAseq_sessionInfo_manuscript.txt
 
 Seurat==4.1.0
 destiny==3.4.0
@@ -9,4 +10,10 @@ tradeSeq==1.8.0
 scry==1.6.0
 gprofiler2==0.2.1
 limma==3.46.0
-# Also used: SingleCellExperiment, ggplot2, dplyr, tidyr, clustree, and helpers in myfunctions.R
+# Used in scripts; version not stated in Methods:
+# SingleCellExperiment, ggplot2, dplyr, tidyr, clustree, mcclust, repr,
+# UpSetR, pheatmap, gridExtra, fgsea, msigdbr, knitr, rlist, patchwork,
+# openxlsx, rrvgo, htmlwidgets, BiocParallel, scran
+#
+# Related (Methods): Cell Ranger 6.1.2; Python 3.7.7 Scanpy 1.9.1;
+# kb_python 0.27.3; scvelo 0.2.5; cellrank 1.5.1

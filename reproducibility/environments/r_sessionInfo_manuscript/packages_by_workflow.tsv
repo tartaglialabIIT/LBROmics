@@ -1,0 +1,35 @@
+workflow	package	version	source	notes
+bulk_RNAseq	DESeq2	1.30.1	manuscript Methods	A8/B3/liver DE
+bulk_RNAseq	WebGestaltR	0.4.5	manuscript Methods	Web Gestalt 2019 databases
+bulk_RNAseq	pheatmap	1.0.12	manuscript Methods	
+bulk_RNAseq	karyoploteR	1.20.3	manuscript Methods	
+bulk_RNAseq	apeglm	not stated	script usage	lfcShrink
+bulk_RNAseq	rtracklayer	not stated (1.66.0 is SAMMY viz stack)	script usage	GTF import; do not assume 1.66.0 for bulk
+bulk_RNAseq	scipy	1.7.2	manuscript Methods	chromosomal enrichment Python
+bulk_RNAseq	statsmodels	0.13.1	manuscript Methods	chromosomal enrichment Python
+bulk_RNAseq	cutadapt	4.1	manuscript Methods	preprocessing
+bulk_RNAseq	Bowtie2	2.2.5	manuscript Methods	rRNA
+bulk_RNAseq	STAR	2.7.10a	manuscript Methods	
+scRNAseq	R	4.2.2	script comment	trajectory scripts
+scRNAseq	Seurat	4.1.0	manuscript Methods	
+scRNAseq	destiny	3.4.0	manuscript Methods	
+scRNAseq	slingshot	2.8.0	manuscript Methods	
+scRNAseq	condiments	1.6.0	manuscript Methods	
+scRNAseq	tradeSeq	1.8.0	manuscript Methods	
+scRNAseq	scry	1.6.0	manuscript Methods	
+scRNAseq	gprofiler2	0.2.1	manuscript Methods	trajectory DEGs
+scRNAseq	limma	3.46.0	manuscript Methods	in silico bulk
+scRNAseq	Cell Ranger	6.1.2	manuscript Methods	
+scRNAseq	Python	3.7.7	notebook metadata	Scanpy QC
+scRNAseq	Scanpy	1.9.1	manuscript Methods	
+scRNAseq	kb_python	0.27.3	manuscript Methods	
+scRNAseq	scvelo	0.2.5	manuscript Methods	
+scRNAseq	cellrank	1.5.1	manuscript Methods	
+sammyseq_viz	R	4.4.2	manuscript Methods	
+sammyseq_viz	Gviz	1.50.0	manuscript Methods	
+sammyseq_viz	rtracklayer	1.66.0	manuscript Methods	
+sammyseq_viz	gprofiler2	0.2.4	manuscript Methods	DSR/compartment GO
+sammyseq_viz	Nextflow	24.10.4	analysis nextflow.log	not in Methods text
+sammyseq_viz	nf-core/sammyseq	dev @ fa6f6ffeb3	analysis nextflow.log	Methods cite unpinned /dev/
+sammyseq_viz	FastQC	0.12.1	manuscript Methods	
+sammyseq_viz	MultiQC	1.31	manuscript Methods	

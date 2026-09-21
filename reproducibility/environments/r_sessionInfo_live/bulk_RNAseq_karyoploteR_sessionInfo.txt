@@ -1,4 +1,8 @@
 # LIVE sessionInfo() dump — library() imports only (analysis scripts not fully executed)
+# !!! NOT MANUSCRIPT VERSIONS !!!
+# Canonical Methods inventories: ../r_sessionInfo_manuscript/
+# Crosswalk: ../manuscript_vs_current_machine.tsv
+#
 # Workflow: bulk_RNAseq_karyoploteR
 # Captured: 2026-09-21 16:50:39 CEST
 # Host: IITBMP012LM005.local / Darwin 24.6.0 arm64
