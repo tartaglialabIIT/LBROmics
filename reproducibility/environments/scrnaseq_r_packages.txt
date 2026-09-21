@@ -1,40 +1,12 @@
-# scRNA-seq R packages (inventory — NOT a lockfile)
-# Trajectory scripts comment: R 4.2.2
-# Package versions with [preprint] from bioRxiv 10.64898/2026.03.30.714681
+# R packages used for scRNA-seq analyses (versions from manuscript Methods where known)
+# Trajectory scripts note R 4.2.2
 
-Seurat==4.1.0           # [preprint]
-destiny==3.4.0          # [preprint]
-slingshot==2.8.0        # [preprint]
-condiments==1.6.0       # [preprint]
-tradeSeq==1.8.0         # [preprint]
-scry==1.6.0             # [preprint]
-gprofiler2==0.2.1       # [preprint] (trajectory DEG enrichment)
-limma==3.46.0           # [preprint] (in silico bulk integration; script missing)
-SingleCellExperiment==TODO
-ggplot2==TODO
-cowplot==TODO
-dplyr==TODO
-tidyr==TODO
-clustree==TODO
-mcclust==TODO
-patchwork==TODO
-openxlsx==TODO
-UpSetR==TODO
-viridis==TODO
-RColorBrewer==TODO
-scales==TODO
-pheatmap==TODO
-gridExtra==TODO
-fgsea==TODO
-msigdbr==TODO
-knitr==TODO
-rgl==TODO
-rglwidget==TODO
-repr==TODO
-rlist==TODO
-rrvgo==TODO
-htmlwidgets==TODO
-rlang==TODO
-BiocParallel==TODO      # tradeSeq parallel fitGAM
-
-# Authors should provide sessionInfo() from the Seurat/tradeSeq machine.
+Seurat==4.1.0
+destiny==3.4.0
+slingshot==2.8.0
+condiments==1.6.0
+tradeSeq==1.8.0
+scry==1.6.0
+gprofiler2==0.2.1
+limma==3.46.0
+# Also used: SingleCellExperiment, ggplot2, dplyr, tidyr, clustree, and helpers in myfunctions.R

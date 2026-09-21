@@ -1,8 +1,8 @@
-analysis	biological_system	geo_accession	data_type	relevant_repo_directory	notes
-bulk_RNAseq_mESC_NPC_clone_A8	mouse female XX ESCs / day-5 NPCs (clone A8)	GSE318892	raw and processed bulk RNA-seq	bulk/	Primary DE scripts and deposited DE tables
-bulk_RNAseq_mESC_NPC_clone_B3	mouse female XX ESCs / day-5 NPCs (clone B3)	GSE318895	raw and processed bulk RNA-seq	bulk/clone_B3/	Companion DE/karyoplot scripts
-scRNAseq_day5_NPC	WT and Lbr NT-KO day-5 NPCs	GSE318871	10x Genomics scRNA-seq	scRNAseq/	Cell Ranger 6.1.2 GRCm38; good_cells.csv deposited
-4f_SAMMY_seq_ESC_NPC_clone_B3	WT and Lbr NT-KO ESC and day-5 NPC (clone B3)	GSE318873	4f-SAMMY-seq	4fSAMMYseq/	nf-core/sammyseq pins in reproducibility/environments/
-bulk_RNAseq_liver_sex_stratified	mouse liver WT vs Lbr NT-KO (male/female)	GSE324396	bulk RNA-seq	bulk/liver_young_kumar/	
-bulk_RNAseq_liver_Young_et_al	mouse liver (subset overlapping prior study)	GSE165447	bulk RNA-seq (public)	bulk/liver_young_kumar/	
-ChIP_seq_Bonev_NPCs	neuronal progenitor ChIP-seq (public)	GSE96107	BigWig / peaks	4fSAMMYseq/downstream_viz/; 4fSAMMYseq/ChIP_peaks_vs_random/	nf-core/chipseq pin still to confirm
+analysis	geo_accession	repo_directory
+bulk_RNAseq_mESC_NPC_clone_A8	GSE318892	bulk/
+bulk_RNAseq_mESC_NPC_clone_B3	GSE318895	bulk/clone_B3/
+scRNAseq_day5_NPC	GSE318871	scRNAseq/
+4f_SAMMY_seq_clone_B3	GSE318873	4fSAMMYseq/
+bulk_RNAseq_liver	GSE324396	bulk/liver_young_kumar/
+bulk_RNAseq_liver_Young_et_al	GSE165447	bulk/liver_young_kumar/
+ChIP_seq_Bonev_NPCs	GSE96107	4fSAMMYseq/ChIP_peaks_vs_random/; 4fSAMMYseq/sammy_vs_chip.R

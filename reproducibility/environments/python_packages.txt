@@ -1,8 +1,0 @@
-# Prefer the recovered xci-venv inventories:
-#   python_xci-venv/requirements.txt
-#   python_xci-venv/xci-venv.pipfreeze_from_METADATA.txt
-#   python_xci-venv/NOTES.md
-#
-# Python 3.7.7 (pyvenv.cfg). Separate envs were also used:
-#   INTERACTomics-venv — chromosomal enrichment notebook
-#   velo-venv — kb_python on the analysis server (export still TODO)
