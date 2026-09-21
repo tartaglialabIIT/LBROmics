@@ -1,0 +1,22 @@
+# Software versions — single-cell RNA-seq
+# From Fiorentino et al. bioRxiv Methods (doi:10.64898/2026.03.30.714681)
+# Trajectory scripts additionally note R 4.2.2
+
+R:
+  R               4.2.2
+  Seurat          4.1.0
+  destiny         3.4.0
+  slingshot       2.8.0
+  condiments      1.6.0
+  tradeSeq        1.8.0
+  scry            1.6.0
+  gprofiler2      0.2.1
+  limma           3.46.0
+
+Python / preprocessing:
+  Cell Ranger     6.1.2
+  Python          3.7.7
+  Scanpy          1.9.1
+  kb_python       0.27.3
+  scvelo          0.2.5
+  cellrank        1.5.1

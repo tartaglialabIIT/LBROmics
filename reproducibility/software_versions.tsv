@@ -6,13 +6,13 @@ bulk_RNAseq	DESeq2	1.30.1	manuscript Methods
 bulk_RNAseq	WebGestaltR	0.4.5	manuscript Methods
 bulk_RNAseq	pheatmap	1.0.12	manuscript Methods
 bulk_RNAseq	karyoploteR	1.20.3	manuscript Methods
-bulk_RNAseq	scipy	1.7.2	manuscript Methods (chromosomal enrichment)
-bulk_RNAseq	statsmodels	0.13.1	manuscript Methods (chromosomal enrichment)
+bulk_RNAseq	scipy	1.7.2	manuscript Methods
+bulk_RNAseq	statsmodels	0.13.1	manuscript Methods
 scRNAseq	Cell Ranger	6.1.2	manuscript Methods
-scRNAseq	Python	3.7.7	envs/python_xci-venv/pyvenv.cfg
-scRNAseq	Scanpy	1.9.1	manuscript Methods / envs/python_xci-venv
+scRNAseq	Python	3.7.7	QC notebook / pyvenv.cfg
+scRNAseq	Scanpy	1.9.1	manuscript Methods
+scRNAseq	R	4.2.2	trajectory script comment
 scRNAseq	Seurat	4.1.0	manuscript Methods
-scRNAseq	R	4.2.2	comment in trajectory script
 scRNAseq	destiny	3.4.0	manuscript Methods
 scRNAseq	slingshot	2.8.0	manuscript Methods
 scRNAseq	condiments	1.6.0	manuscript Methods
@@ -21,15 +21,13 @@ scRNAseq	scry	1.6.0	manuscript Methods
 scRNAseq	gprofiler2	0.2.1	manuscript Methods
 scRNAseq	limma	3.46.0	manuscript Methods
 scRNAseq	kb_python	0.27.3	manuscript Methods
-scRNAseq	scvelo	0.2.5	manuscript Methods / envs/python_xci-venv
-scRNAseq	cellrank	1.5.1	manuscript Methods / envs/python_xci-venv
-4fSAMMYseq	Nextflow	24.10.4	envs/nextflow_pins.env
-4fSAMMYseq	nf-core/sammyseq	dev @ fa6f6ffeb3	envs/nextflow_pins.env
-4fSAMMYseq	R	4.4.2	manuscript Methods (visualization)
+scRNAseq	scvelo	0.2.5	manuscript Methods
+scRNAseq	cellrank	1.5.1	manuscript Methods
+4fSAMMYseq	Nextflow	24.10.4	analysis nextflow.log
+4fSAMMYseq	nf-core/sammyseq	fa6f6ffeb3 (dev)	analysis nextflow.log
+4fSAMMYseq	R	4.4.2	manuscript Methods
 4fSAMMYseq	Gviz	1.50.0	manuscript Methods
 4fSAMMYseq	rtracklayer	1.66.0	manuscript Methods
 4fSAMMYseq	gprofiler2	0.2.4	manuscript Methods
 4fSAMMYseq	FastQC	0.12.1	manuscript Methods
 4fSAMMYseq	MultiQC	1.31	manuscript Methods
-reference	Ensembl annotation	GRCm38.98	manuscript Methods
-reference	genome build	mm10	manuscript Methods
