@@ -1,0 +1,7 @@
+Jonathan Fiorentino 28/07/2022
+
+1. Remove adapters using Cutadapt V4.1 script run_cutadapt.sh
+2. Fastqc (V0.11.9) to see if the trimming was successful script run_fastqc.sh
+3. Merge trimmed fastq from the same samples for different lanes: merge_fastq.sh
+4. Generate STAR index: 
+5. Alignment and count with STAR v2.7.10a
