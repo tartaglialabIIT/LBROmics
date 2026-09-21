@@ -1,0 +1,67 @@
+# LIVE sessionInfo() dump — library() imports only (analysis scripts not fully executed)
+# Workflow: bulk_RNAseq_liver
+# Captured: 2026-09-21 16:50:14 CEST
+# Host: IITBMP012LM005.local / Darwin 24.6.0 arm64
+# R.home: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources
+# .libPaths: /Users/jfiorentino/Library/R/arm64/4.4/library | /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library
+# Bioconductor: 3.20
+#
+# CAUTION: Versions below are from THIS machine at capture time.
+# They will often differ from manuscript Methods (e.g. DESeq2 1.30.1, Seurat 4.1.0).
+# Use for documenting a working modern stack / reviewer install aid; not bit-for-bit paper reproduction.
+#
+# Requested packages: DESeq2, rtracklayer, readxl, plyr, pheatmap, ggplot2, ggrepel, VennDiagram, RColorBrewer
+# Loaded OK (9): DESeq2, rtracklayer, readxl, plyr, pheatmap, ggplot2, ggrepel, VennDiagram, RColorBrewer
+# Failed (0): none
+#
+----- sessionInfo() -----
+R version 4.4.2 (2024-10-31)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.6.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+
+locale:
+[1] C
+
+time zone: Europe/Rome
+tzcode source: internal
+
+attached base packages:
+[1] grid      stats4    stats     graphics  grDevices utils     datasets 
+[8] methods   base     
+
+other attached packages:
+ [1] RColorBrewer_1.1-3          VennDiagram_1.7.3          
+ [3] futile.logger_1.4.3         ggrepel_0.9.6              
+ [5] ggplot2_4.0.1               pheatmap_1.0.13            
+ [7] plyr_1.8.9                  readxl_1.4.5               
+ [9] rtracklayer_1.66.0          DESeq2_1.46.0              
+[11] SummarizedExperiment_1.36.0 Biobase_2.66.0             
+[13] MatrixGenerics_1.18.1       matrixStats_1.5.0          
+[15] GenomicRanges_1.58.0        GenomeInfoDb_1.42.3        
+[17] IRanges_2.40.1              S4Vectors_0.44.0           
+[19] BiocGenerics_0.52.0        
+
+loaded via a namespace (and not attached):
+ [1] gtable_0.3.6             rjson_0.2.23             lattice_0.22-6          
+ [4] vctrs_0.6.5              tools_4.4.2              bitops_1.0-9            
+ [7] generics_0.1.4           curl_7.0.0               parallel_4.4.2          
+[10] tibble_3.3.0             pkgconfig_2.0.3          Matrix_1.7-1            
+[13] S7_0.2.1                 lifecycle_1.0.4          GenomeInfoDbData_1.2.13 
+[16] compiler_4.4.2           farver_2.1.2             Rsamtools_2.22.0        
+[19] Biostrings_2.74.1        codetools_0.2-20         RCurl_1.98-1.17         
+[22] yaml_2.3.11              pillar_1.11.1            crayon_1.5.3            
+[25] BiocParallel_1.40.2      DelayedArray_0.32.0      abind_1.4-8             
+[28] tidyselect_1.2.1         locfit_1.5-9.12          dplyr_1.1.4             
+[31] restfulr_0.0.16          colorspace_2.1-2         cli_3.6.5               
+[34] SparseArray_1.6.2        magrittr_2.0.4           S4Arrays_1.6.0          
+[37] dichromat_2.0-0.1        XML_3.99-0.20            withr_3.0.2             
+[40] scales_1.4.0             UCSC.utils_1.2.0         lambda.r_1.2.4          
+[43] XVector_0.46.0           httr_1.4.7               cellranger_1.1.0        
+[46] BiocIO_1.16.0            futile.options_1.0.1     rlang_1.1.6             
+[49] Rcpp_1.1.0               glue_1.8.0               formatR_1.14            
+[52] BiocManager_1.30.27      jsonlite_2.0.0           R6_2.6.1                
+[55] GenomicAlignments_1.42.0 zlibbioc_1.52.0         

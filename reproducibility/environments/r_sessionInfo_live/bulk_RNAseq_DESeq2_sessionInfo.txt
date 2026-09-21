@@ -1,0 +1,73 @@
+# LIVE sessionInfo() dump — library() imports only (analysis scripts not fully executed)
+# Workflow: bulk_RNAseq_DESeq2
+# Captured: 2026-09-21 16:50:03 CEST
+# Host: IITBMP012LM005.local / Darwin 24.6.0 arm64
+# R.home: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources
+# .libPaths: /Users/jfiorentino/Library/R/arm64/4.4/library | /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/library
+# Bioconductor: 3.20
+#
+# CAUTION: Versions below are from THIS machine at capture time.
+# They will often differ from manuscript Methods (e.g. DESeq2 1.30.1, Seurat 4.1.0).
+# Use for documenting a working modern stack / reviewer install aid; not bit-for-bit paper reproduction.
+#
+# Requested packages: DESeq2, rtracklayer, apeglm, ggplot2, EnhancedVolcano, pheatmap, RColorBrewer, ggpubr, ggplotify, dplyr
+# Loaded OK (10): DESeq2, rtracklayer, apeglm, ggplot2, EnhancedVolcano, pheatmap, RColorBrewer, ggpubr, ggplotify, dplyr
+# Failed (0): none
+#
+----- sessionInfo() -----
+R version 4.4.2 (2024-10-31)
+Platform: aarch64-apple-darwin20
+Running under: macOS Sequoia 15.6.1
+
+Matrix products: default
+BLAS:   /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRblas.0.dylib 
+LAPACK: /Library/Frameworks/R.framework/Versions/4.4-arm64/Resources/lib/libRlapack.dylib;  LAPACK version 3.12.0
+
+locale:
+[1] C
+
+time zone: Europe/Rome
+tzcode source: internal
+
+attached base packages:
+[1] stats4    stats     graphics  grDevices utils     datasets  methods  
+[8] base     
+
+other attached packages:
+ [1] dplyr_1.1.4                 ggplotify_0.1.3            
+ [3] ggpubr_0.6.2                RColorBrewer_1.1-3         
+ [5] pheatmap_1.0.13             EnhancedVolcano_1.24.0     
+ [7] ggrepel_0.9.6               ggplot2_4.0.1              
+ [9] apeglm_1.28.0               rtracklayer_1.66.0         
+[11] DESeq2_1.46.0               SummarizedExperiment_1.36.0
+[13] Biobase_2.66.0              MatrixGenerics_1.18.1      
+[15] matrixStats_1.5.0           GenomicRanges_1.58.0       
+[17] GenomeInfoDb_1.42.3         IRanges_2.40.1             
+[19] S4Vectors_0.44.0            BiocGenerics_0.52.0        
+
+loaded via a namespace (and not attached):
+ [1] tidyselect_1.2.1         farver_2.1.2             Biostrings_2.74.1       
+ [4] S7_0.2.1                 bitops_1.0-9             RCurl_1.98-1.17         
+ [7] GenomicAlignments_1.42.0 digest_0.6.39            XML_3.99-0.20           
+[10] lifecycle_1.0.4          magrittr_2.0.4           compiler_4.4.2          
+[13] rlang_1.1.6              tools_4.4.2              yaml_2.3.11             
+[16] ggsignif_0.6.4           S4Arrays_1.6.0           curl_7.0.0              
+[19] DelayedArray_0.32.0      plyr_1.8.9               abind_1.4-8             
+[22] BiocParallel_1.40.2      withr_3.0.2              purrr_1.2.0             
+[25] numDeriv_2016.8-1.1      grid_4.4.2               colorspace_2.1-2        
+[28] scales_1.4.0             MASS_7.3-61              dichromat_2.0-0.1       
+[31] bbmle_1.0.25.1           cli_3.6.5                mvtnorm_1.3-3           
+[34] crayon_1.5.3             generics_0.1.4           httr_1.4.7              
+[37] rjson_0.2.23             bdsmatrix_1.3-7          zlibbioc_1.52.0         
+[40] parallel_4.4.2           BiocManager_1.30.27      XVector_0.46.0          
+[43] restfulr_0.0.16          yulab.utils_0.2.2        vctrs_0.6.5             
+[46] Matrix_1.7-1             jsonlite_2.0.0           carData_3.0-5           
+[49] car_3.1-3                gridGraphics_0.5-1       rstatix_0.7.3           
+[52] Formula_1.2-5            locfit_1.5-9.12          tidyr_1.3.1             
+[55] glue_1.8.0               emdbook_1.3.14           codetools_0.2-20        
+[58] gtable_0.3.6             BiocIO_1.16.0            UCSC.utils_1.2.0        
+[61] tibble_3.3.0             pillar_1.11.1            rappdirs_0.3.3          
+[64] GenomeInfoDbData_1.2.13  R6_2.6.1                 lattice_0.22-6          
+[67] backports_1.5.0          Rsamtools_2.22.0         broom_1.0.11            
+[70] Rcpp_1.1.0               coda_0.19-4.1            SparseArray_1.6.2       
+[73] fs_1.6.6                 pkgconfig_2.0.3         
