@@ -31,3 +31,4 @@ scRNAseq	cellrank	1.5.1	manuscript Methods
 4fSAMMYseq	gprofiler2	0.2.4	manuscript Methods
 4fSAMMYseq	FastQC	0.12.1	manuscript Methods
 4fSAMMYseq	MultiQC	1.31	manuscript Methods
+platform	OS	Ubuntu 22.04.5 LTS	tested_system.md (/etc/os-release)

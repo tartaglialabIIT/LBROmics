@@ -4,6 +4,7 @@
 |------|-------------|
 | `data_accessions.tsv` | GEO accessions linked to repository directories |
 | `software_versions.tsv` | Software versions from the manuscript Methods |
+| `tested_system.md` | Tested OS and hardware expectations |
 | `HOW_TO_RUN.md` | Suggested execution order |
 | `environments/sessionInfo/` | Per-workflow version lists matching Methods |
 | `environments/` | R/Python package pins and Nextflow launch command |
