@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 # Note that this analysis runs in R4.2.2
 library(Seurat)
 library(slingshot)
@@ -18,7 +19,9 @@ library(viridis)
 
 theme_set(theme_classic())
 
-wd <- "/Users/jonathan/Desktop/IIT/Cerase_single_cell/ANALYSIS/Seurat_analysis/"
+# Set LBROMICS_SCRNA_ROOT to the Seurat analysis directory.
+wd <- Sys.getenv("LBROMICS_SCRNA_ROOT", unset = "")
+if (!nzchar(wd)) wd <- getwd()
 setwd(wd)
 
 

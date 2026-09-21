@@ -1,0 +1,8 @@
+LBROmics demo summary
+NPC genes with finite LFC+padj: 17665
+NPC DEGs up (LFC>1, padj<0.01): 681 (manuscript: 681)
+NPC DEGs down (LFC<-1, padj<0.01): 828 (manuscript: 828)
+mESC DEGs up: 300 (manuscript: 300)
+mESC DEGs down: 406 (manuscript: 406)
+DEG count check: PASS
+Wrote demo/output/volcano_NPC.png

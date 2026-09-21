@@ -1,7 +1,14 @@
+#!/usr/bin/env Rscript
 library(tradeSeq)
 library(SingleCellExperiment)
 
-wd <- "/mnt/large/jfiorentino/Cerase_Data/scRNA_seq/tradeseq/"
+# Set LBROMICS_TRADESEQ_DIR to the directory containing curves.RData, counts.Rdata,
+# myconditions.Rdata, and filtered_genes_for_tradeseq.txt
+wd <- Sys.getenv("LBROMICS_TRADESEQ_DIR", unset = "")
+if (!nzchar(wd)) {
+  # Fall back to scRNAseq/ in the repository when present
+  wd <- Sys.getenv("LBROMICS_SCRNA_ROOT", unset = getwd())
+}
 setwd(wd)
 
 load("curves.RData")
