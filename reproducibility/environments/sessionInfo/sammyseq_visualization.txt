@@ -1,0 +1,12 @@
+# Software versions — 4f-SAMMY-seq visualization
+# From Fiorentino et al. bioRxiv Methods (doi:10.64898/2026.03.30.714681)
+
+R:
+  R               4.4.2
+  Gviz            1.50.0
+  rtracklayer     1.66.0
+  gprofiler2      0.2.4
+
+QC / pipeline (Methods):
+  FastQC          0.12.1
+  MultiQC         1.31

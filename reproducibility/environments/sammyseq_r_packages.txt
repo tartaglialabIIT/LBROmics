@@ -1,0 +1,4 @@
+# 4f-SAMMY-seq visualization — versions from manuscript Methods (R 4.4.2)
+Gviz==1.50.0
+rtracklayer==1.66.0
+gprofiler2==0.2.4

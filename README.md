@@ -17,7 +17,7 @@ Custom R and Python workflows for bulk RNA-seq, single-cell RNA-seq, and 4f-SAMM
 |-----------|-------------|
 | `bulk/` | Preprocessing, DESeq2, enrichment, karyoplot, chromosomal enrichment, liver DE, clone B3 helpers |
 | `scRNAseq/` | Cell Ranger helper, Scanpy QC, Seurat clustering/markers/trajectories, tradeSeq, CellRank/scvelo, in silico bulk integration |
-| `4fSAMMYseq/` | nf-core samplesheet/pins usage, DiffSol barplots, TPM–DSR, compartments, ChIP comparison |
+| `4fSAMMYseq/` | nf-core samplesheet/pins usage, DiffSol barplots, TPM–DSR, ChIP comparison |
 | `demo/` | Small demo on deposited DE tables |
 | `reproducibility/` | GEO accessions, software versions, environments, run order |
 | `CITATION.cff` | Citation metadata |

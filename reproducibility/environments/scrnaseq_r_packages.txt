@@ -1,6 +1,4 @@
-# R packages used for scRNA-seq analyses (versions from manuscript Methods where known)
-# Trajectory scripts note R 4.2.2
-
+# scRNA-seq — versions from manuscript Methods (R 4.2.2 for trajectory scripts)
 Seurat==4.1.0
 destiny==3.4.0
 slingshot==2.8.0
@@ -9,4 +7,3 @@ tradeSeq==1.8.0
 scry==1.6.0
 gprofiler2==0.2.1
 limma==3.46.0
-# Also used: SingleCellExperiment, ggplot2, dplyr, tidyr, clustree, and helpers in myfunctions.R
