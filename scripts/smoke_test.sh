@@ -10,7 +10,7 @@ required=(
   LICENSE
   README.md
   CITATION.cff
-  NATURE_CODE_AUDIT.md
+  REPRODUCIBILITY_AUDIT.md
   bulk/deseq2_analysis.R
   bulk/deseq2_results_NPC.txt
   bulk/deseq2_results_mESC.txt

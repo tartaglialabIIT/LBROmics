@@ -1,4 +1,4 @@
-# Nature Code & Software Submission Checklist — Audit
+# Code & reproducibility audit
 
 **Repository:** https://github.com/tartaglialabIIT/LBROmics  
 **Manuscript / preprint:** Fiorentino et al., *LBR nucleoplasmic domains regulate X-chromosome solubility and nuclear organization*  
@@ -22,10 +22,10 @@ This audit separates **what is already in the repository** from **what can be re
 
 ---
 
-## Nature checklist audit table
+## Reproducibility / journal code-sharing checklist audit table
 
-| Nature requirement | Current status | Evidence found in repo | What should be added | Can this be inferred safely from the repo? | User input needed? |
-|--------------------|----------------|------------------------|----------------------|--------------------------------------------|--------------------|
+| Requirement | Current status | Evidence found in repo | What should be added | Can this be inferred safely from the repo? | User input needed? |
+|-------------|----------------|------------------------|----------------------|--------------------------------------------|--------------------|
 | Source code present | PASS | R scripts + Scanpy notebook under `bulk/`, `scRNAseq/`, `4fSAMMYseq/` | Missing manuscript analyses (see gaps) | yes | partial (to deposit missing analysis code) |
 | Small demo / test dataset | MISSING (pre-improvement) | No `demo/`; no toy inputs; `good_cells.numbers` is Apple Numbers binary, not usable CSV | Runnable demo + tiny inputs + expected output + runtime | no | if full-workflow demo needed |
 | System requirements: OS | MISSING | Paths imply macOS (`/Users/jonathan/...`) and Linux (`/mnt/large/...`); no tested-OS statement | Explicit tested OS/distro | no | **yes** |
@@ -174,7 +174,7 @@ These were **not** silently changed:
 
 ## Information I still need from the authors
 
-### Critical for ticking Nature boxes
+### Critical for ticking journal code-sharing boxes
 
 1. **Original environment exports** (do not invent):
    - Per machine / workflow: `sessionInfo()` and `BiocManager::version()`
@@ -245,4 +245,4 @@ git -C /path/to/chipseq rev-parse HEAD
 
 ## Post-improvement note
 
-Improvements on branch `nature-code-checklist` add documentation, inventories, path portability, citation metadata, `.gitignore`, and a **lightweight demo** using deposited DE tables. They **do not** invent lockfiles or nf-core commits. Boxes that require measured runtimes, tested OS confirmation, or author lockfiles remain **NOT READY TO TICK** until authors supply the items above.
+Documentation, inventories, path portability, citation metadata, `.gitignore`, and a **lightweight demo** using deposited DE tables were added to improve reviewer usability. They **do not** invent lockfiles or nf-core commits. Items that require measured runtimes, tested OS confirmation, or author lockfiles remain incomplete until authors supply the information above.

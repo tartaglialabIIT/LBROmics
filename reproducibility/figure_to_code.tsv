@@ -17,4 +17,4 @@ Figure 4B stacked bar differentially soluble genes	4fSAMMY	4fSAMMYseq/Barplot_Di
 Figure 4C TPM in DSRs	4fSAMMY	4fSAMMYseq/TPM_DSR.R	S2SvsS3_*.rds; mm10.gtf; salmon.merged.gene_tpm.tsv	FIGURES/new_plot_TPM_DSR.pdf	
 Figure 4 / S11 GO of S2S-down genes	4fSAMMY	TODO_partial	DSR gene lists	GO barplots	gprofiler2 0.2.4 per Methods; full script not deposited
 Compartment switching panels	4fSAMMY	TODO_missing (nf-core sammyseq compartments_subworkflow)	CALDER2 outputs	compartment figures	Pipeline branch cited in Methods; not in repo
-TODO_author_complete_remaining_panels	mixed	TODO	TODO	TODO	Authors should fill remaining figure letters after final Nature figure renumbering
+TODO_author_complete_remaining_panels	mixed	TODO	TODO	TODO	Authors should fill remaining figure letters after final manuscript figure renumbering

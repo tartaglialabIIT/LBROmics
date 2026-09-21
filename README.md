@@ -9,7 +9,7 @@ This repository is intended for **reproducibility and reviewer usability**, not 
 
 **License:** MIT  
 **Repository:** https://github.com/tartaglialabIIT/LBROmics  
-**Detailed audit vs Nature checklist:** [`NATURE_CODE_AUDIT.md`](NATURE_CODE_AUDIT.md)  
+**Reproducibility audit:** [`REPRODUCIBILITY_AUDIT.md`](REPRODUCIBILITY_AUDIT.md)  
 **Reproducibility tables:** [`reproducibility/`](reproducibility/)
 
 ---
@@ -32,7 +32,7 @@ The nuclear lamina protein LBR is dissected genetically to separate nucleoplasmi
 | `demo/` | Small runnable demo using deposited DE tables (no GEO download) |
 | `reproducibility/` | Accessions, software inventory, figure map, execution order, environment skeletons |
 | `scripts/` | Smoke tests and helpers |
-| `NATURE_CODE_AUDIT.md` | Nature checklist audit + author information still required |
+| `REPRODUCIBILITY_AUDIT.md` | Reproducibility gaps + author information still required |
 | `CITATION.cff` | Citation metadata |
 | `LICENSE` | MIT |
 

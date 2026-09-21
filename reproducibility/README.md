@@ -1,6 +1,6 @@
 # Reproducibility materials
 
-This directory supports Nature-style code sharing for the LBROmics analysis repository. It documents **what can be verified from the repository and preprint**, and clearly marks what still requires author-exported environments.
+This directory supports journal-ready code sharing for the LBROmics analysis repository. It documents **what can be verified from the repository and preprint**, and clearly marks what still requires author-exported environments.
 
 | File | Purpose |
 |------|---------|

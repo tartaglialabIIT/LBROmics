@@ -4,7 +4,7 @@ This demo does **not** re-run DESeq2. It checks that the deposited differential-
 
 ## Why this demo?
 
-Full manuscript reproduction needs GEO downloads, GTF annotation, and pinned R/Bioconductor environments that are not yet locked in this repository. Nature checklists still expect a small runnable example; deposited DE tables are the largest scientifically relevant artefacts already in the repo.
+Full manuscript reproduction needs GEO downloads, GTF annotation, and pinned R/Bioconductor environments that are not yet locked in this repository. Journal code-sharing guidelines typically expect a small runnable example; deposited DE tables are the largest scientifically relevant artefacts already in the repo.
 
 ## Requirements
 
