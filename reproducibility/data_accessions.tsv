@@ -1,0 +1,8 @@
+analysis	biological_system	geo_accession	data_type	relevant_repo_directory	notes
+bulk_RNAseq_mESC_NPC_clone_A8	mouse female XX ESCs / day-5 NPCs (clone A8)	GSE318892	raw and processed bulk RNA-seq	bulk/	Primary DE analysis scripts expect raw count matrices from this study
+bulk_RNAseq_mESC_NPC_clone_B3	mouse female XX ESCs / day-5 NPCs (clone B3)	GSE318895	raw and processed bulk RNA-seq	TODO_scripts_missing	Used with 4f-SAMMY-seq / TPM–DSR integration; analysis scripts for clone B3 DE not deposited
+scRNAseq_day5_NPC	WT and Lbr NT-KO day-5 NPCs	GSE318871	10x Genomics scRNA-seq	scRNAseq/	Cell Ranger 6.1.2 GRCm38 per preprint Methods
+4f_SAMMY_seq_ESC_NPC_clone_B3	WT and Lbr NT-KO ESC and day-5 NPC (clone B3)	GSE318873	4f-SAMMY-seq	4fSAMMYseq/	nf-core/sammyseq processing not in repo; visualization scripts only
+bulk_RNAseq_liver_sex_stratified	mouse liver WT vs Lbr NT-KO (male/female)	GSE324396	bulk RNA-seq	TODO_scripts_missing	Newly generated liver samples; DE scripts not in repo
+bulk_RNAseq_liver_Young_et_al	mouse liver (subset overlapping prior study)	GSE165447	bulk RNA-seq (public)	TODO_scripts_missing	Eight samples from Young et al.; combined with GSE324396 in Methods
+ChIP_seq_Bonev_NPCs	neuronal progenitor ChIP-seq (public)	GSE96107	BigWig / peaks (reprocessed)	TODO_scripts_missing	Reprocessed with nf-core/chipseq per Methods; no scripts in repo

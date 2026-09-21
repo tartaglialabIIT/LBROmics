@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 library(Seurat)
 library(slingshot)
 library(tradeSeq)
@@ -11,7 +12,9 @@ library(tidyr)
 library(msigdbr)
 library(knitr)
 
-wd <- "/Users/jonathan/Desktop/IIT/Cerase_single_cell/ANALYSIS/Seurat_analysis/"
+# Set LBROMICS_SCRNA_ROOT to the Seurat analysis directory.
+wd <- Sys.getenv("LBROMICS_SCRNA_ROOT", unset = "")
+if (!nzchar(wd)) wd <- getwd()
 setwd(wd)
 
 sce <- readRDS("./files_JULY_2023/tradeSeq_sce.rds")

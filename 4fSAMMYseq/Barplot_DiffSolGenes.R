@@ -1,3 +1,10 @@
+#!/usr/bin/env Rscript
+# Barplot of differential solubility gene counts (S2S vs S3).
+#
+# Usage:
+#   Rscript Barplot_DiffSolGenes.R --folder /path/to/gene_lists --outdir ./output
+#   # or set LBROMICS_SAMMY_GENES_DIR / LBROMICS_SAMMY_OUTDIR
+
 library(tidyverse)
 
 plot_gene_counts <- function(folder, pattern, pdf_file) {
@@ -93,9 +100,26 @@ plot_gene_counts <- function(folder, pattern, pdf_file) {
   
   return(p)
 }
-# --- Example usage ---
-folder <- "/Users/jfiorentino/Desktop/OneDrive - Fondazione Istituto Italiano Tecnologia/IIT/Cerase_single_cell/SAMMY-seq/differential_solubility/genes/"
-wd <- "/Users/jfiorentino/Desktop/OneDrive - Fondazione Istituto Italiano Tecnologia/IIT/Cerase_single_cell/SAMMY-seq/differential_solubility/"
-setwd(wd)
 
-plot_gene_counts(folder = folder, pattern = "S2SvsS3", pdf_file = "../FINAL_PLOTS_NOV2025/diffsoluble_gene_counts_S2SvsS3.pdf")
+args <- commandArgs(trailingOnly = TRUE)
+get_arg <- function(flag, default = NULL) {
+  i <- match(flag, args)
+  if (!is.na(i) && i < length(args)) return(args[[i + 1]])
+  default
+}
+
+folder <- get_arg("--folder", Sys.getenv("LBROMICS_SAMMY_GENES_DIR", unset = ""))
+outdir <- get_arg("--outdir", Sys.getenv("LBROMICS_SAMMY_OUTDIR", unset = getwd()))
+pattern <- get_arg("--pattern", "S2SvsS3")
+pdf_file <- get_arg("--pdf", file.path(outdir, "diffsoluble_gene_counts_S2SvsS3.pdf"))
+
+if (!nzchar(folder)) {
+  stop(
+    "Provide --folder /path/to/differential_solubility/genes ",
+    "or set LBROMICS_SAMMY_GENES_DIR"
+  )
+}
+dir.create(outdir, showWarnings = FALSE, recursive = TRUE)
+message("Reading gene lists from: ", folder)
+message("Writing: ", pdf_file)
+plot_gene_counts(folder = folder, pattern = pattern, pdf_file = pdf_file)

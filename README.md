@@ -1,66 +1,129 @@
 # LBROmics
 
-*LBR nucleoplasmic domains regulate X-chromosome solubility and nuclear organization*
+Analysis code accompanying:
 
-## Abstract
+> Fiorentino et al. *LBR nucleoplasmic domains regulate X-chromosome solubility and nuclear organization.*  
+> bioRxiv [doi:10.64898/2026.03.30.714681](https://doi.org/10.64898/2026.03.30.714681)
 
-The nuclear lamina plays a central role in genome organization, yet how specific lamina-associated proteins regulate chromosome architecture during development remains unclear. Here, we show that the nucleoplasmic domains of the Lamin B Receptor (LBR) are essential for X-chromosome localization at the nuclear periphery and chromatin architecture during neural differentiation. Using genetic dissection of LBR function, combined with genome-wide chromatin solubility profiling and transcriptional analyses, we demonstrate that loss of LBR N-terminal domains impairs proper cell differentiation and X chromosome inactivation (XCI), selectively disrupting chromatin structure in neural progenitors but not in pluripotent cells.
+This repository provides custom R and Python workflows for bulk RNA-seq, single-cell RNA-seq, and downstream 4f-SAMMY-seq visualization.
 
-Strikingly, these effects are disproportionately concentrated on the inactive X chromosome, which undergoes a pronounced shift toward an insoluble chromatin state, revealing a decoupling between chromatin solubility and steady-state gene expression. Our findings establish the nucleoplasmic function of LBR as a key determinant of X-chromosome functionality and identify chromatin solubility and accessibility as a previously underappreciated dimension of genome regulation by the nuclear lamina in XCI. Finally, our work provides definitive genetic evidence that LBR’s nuclear architectural functions are molecularly separable from its metabolic sterol reductase activity, which is preserved in our model, and are critically necessary for XCI in differentiating mouse female XX ESCs models.
+**License:** MIT  
+**Repository:** https://github.com/tartaglialabIIT/LBROmics  
+**Reproducibility materials:** [`reproducibility/`](reproducibility/)
 
-## Repository description
-
-This repository contains the analysis code used in the study “LBR nucleoplasmic domains regulate X-chromosome solubility and nuclear organization.”
-
-It provides scripts and workflows to reproduce the main computational analyses of the manuscript, including bulk RNA-seq, single-cell RNA-seq, and chromatin solubility (4f-SAMMY-seq) analyses.
+---
 
 ## Repository structure
 
-**bulk/**
+| Path | Contents |
+|------|----------|
+| `bulk/` | DESeq2 analysis, QC/heatmaps, WebGestaltR enrichment, X-chromosome karyoplot; deposited DE result tables |
+| `scRNAseq/` | Scanpy QC notebook, Seurat clustering/markers, destiny/slingshot/condiments, tradeSeq, gProfiler |
+| `4fSAMMYseq/` | Visualization of differential solubility gene counts and TPM in differentially soluble regions |
+| `demo/` | Small runnable demo using deposited DE tables |
+| `reproducibility/` | Data accessions, software inventory, figure map, execution order, environment notes |
+| `scripts/` | Smoke tests and helpers |
+| `CITATION.cff` | Citation metadata |
+| `LICENSE` | MIT |
 
-Scripts for reproducing bulk RNA-seq analyses, including:
-
-	•	differential expression analysis (DESeq2)
-
-	•	PCA and sample distance quality controls
-	
-	•	heatmaps for key gene sets (escapees, X-linked genes, markers)
-	
-	•	annotated karyoplot of X chromosome
-	
-	•	GSEA and ORA using webgestaltR
-
-These scripts use raw count matrices deposited on GEO.
-
-**scRNAseq/**
-
-Scripts for single-cell RNA-seq analysis, including:
-	
-	•	preprocessing and clustering
-	
-	•	differential expression analyses
-	
-	•	marker gene visualization
-	
-	•	trajectory inference and tradeseq analysis
-
-**4fSAMMYseq/**
-
-Analysis workflows for chromatin solubility profiling (4f-SAMMY-seq), including:
-	
-	•	differential solubility analysis
-	
-	•	chromatin compartment analysis
-	
-	•	comparison with ChIP-seq data
+---
 
 ## Data availability
 
-Raw and processed sequencing data are available on GEO (accession numbers provided in the manuscript).
+| Analysis | Biological system | GEO accession | Repo directory |
+|----------|-------------------|---------------|----------------|
+| Bulk RNA-seq (clone A8) | Female XX mESC / day-5 NPC | [GSE318892](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE318892) | `bulk/` |
+| Bulk RNA-seq (clone B3) | Female XX mESC / day-5 NPC | [GSE318895](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE318895) | see manuscript |
+| scRNA-seq | WT vs Lbr NT-KO day-5 NPC | [GSE318871](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE318871) | `scRNAseq/` |
+| 4f-SAMMY-seq | ESC / NPC clone B3 | [GSE318873](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE318873) | `4fSAMMYseq/` |
+| Bulk RNA-seq liver (new) | Male/female liver | [GSE324396](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE324396) | see manuscript |
+| Bulk RNA-seq liver (prior) | Young et al. subset | [GSE165447](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE165447) | see manuscript |
+| ChIP-seq (public) | Bonev et al. NPCs | [GSE96107](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE96107) | see manuscript |
+
+Full table: [`reproducibility/data_accessions.tsv`](reproducibility/data_accessions.tsv).
+
+---
+
+## System requirements
+
+Versions used in the study are summarized in [`reproducibility/software_versions.tsv`](reproducibility/software_versions.tsv) and in the manuscript Methods. In brief:
+
+- **R:** multiple analysis environments were used (trajectory scripts note R 4.2.2; some SAMMY visualization used R 4.4.2)
+- **Python:** 3.7.7 for Scanpy QC (`scRNAseq/1_QualityControl.ipynb` metadata); Scanpy 1.9.1
+- **Key R packages:** DESeq2 1.30.1, Seurat 4.1.0, WebGestaltR 0.4.5, and others listed in `reproducibility/environments/`
+- **Reference:** Ensembl GRCm38.98 / mm10
+- **Hardware:** multi-core CPU recommended for tradeSeq / WebGestaltR (`nThreads` / parallel workers are set in those scripts)
+
+Package inventories (not lockfiles):
+
+- [`reproducibility/environments/bulk_r_packages.txt`](reproducibility/environments/bulk_r_packages.txt)
+- [`reproducibility/environments/scrnaseq_r_packages.txt`](reproducibility/environments/scrnaseq_r_packages.txt)
+- [`reproducibility/environments/python_packages.txt`](reproducibility/environments/python_packages.txt)
+- [`reproducibility/environments/nextflow_pins.env.example`](reproducibility/environments/nextflow_pins.env.example)
+
+---
+
+## Installation
+
+```bash
+git clone https://github.com/tartaglialabIIT/LBROmics.git
+cd LBROmics
+```
+
+For the demo only, Python 3 is sufficient (matplotlib optional).
+
+For full analyses, install R/Python packages from the inventories above, preferably matching the versions reported in the manuscript Methods / `software_versions.tsv`.
+
+---
+
+## Demo
+
+```bash
+python3 demo/run_demo.py
+# or: make demo
+```
+
+| Item | Value |
+|------|-------|
+| Input | `bulk/deseq2_results_NPC.txt`, `bulk/deseq2_results_mESC.txt` |
+| Expected output | `demo/output/demo_summary.txt`, optional `demo/output/volcano_NPC.png` |
+| Runtime | ~0.1–2 s on a typical workstation |
+
+See [`demo/README.md`](demo/README.md).
+
+---
+
+## Instructions for use
+
+Step-by-step execution order, inputs, and path environment variables:
+
+- [`reproducibility/execution_order.md`](reproducibility/execution_order.md)
+- Figure-oriented map: [`reproducibility/figure_to_code.tsv`](reproducibility/figure_to_code.tsv)
+
+**Bulk (summary):** place GEO count matrices and GRCm38.98 GTF as described in `execution_order.md`, then run `deseq2_analysis.R`, `webgestalt.R`, and `karyoplot_mouse.R`.
+
+**scRNA-seq (summary):** numbered scripts `1_`…`7_` in `scRNAseq/`. Set `LBROMICS_SCRNA_ROOT` (and related env vars) as described in the script headers.
+
+**4f-SAMMY-seq visualization (summary):** set `LBROMICS_SAMMY_ROOT` or pass `--folder` / `--rdata` / `--gtf` / `--tpm` arguments to the scripts in `4fSAMMYseq/`.
+
+---
+
+## Code availability (manuscript text)
+
+> Custom R and Python scripts used for the bulk RNA-seq, single-cell RNA-seq, and 4f-SAMMY-seq visualization analyses are publicly available at https://github.com/tartaglialabIIT/LBROmics (MIT license). Sequencing data are available in GEO under accessions GSE318892, GSE318871, GSE318873, GSE318895, GSE324396, with related public datasets GSE165447 and GSE96107.
+
+---
 
 ## Citation
 
-If you use this code or build upon these analyses, please cite:
+See [`CITATION.cff`](CITATION.cff).
 
-Fiorentino J†, Perotti I†, Ruiz Blanes N, Rosti V, Gammon L, Sigala I, Nikolakaki E, Colantoni A, D’Elia A, Massari R, Scavizzi F, Raspa M, Ascolani M, Humphreys NE, Giannakouros T, Guttman M, Lanzuolo C, Tartaglia GG, Cerase A.
-LBR nucleoplasmic domains regulate X-chromosome solubility and nuclear organization.
+Fiorentino J, Perotti I, Ruiz Blanes N, Rosti V, Sigala I, Nikolakaki E, Colantoni A, D’Elia A, Massari R, Scavizzi F, Raspa M, Ascolani M, Humphreys NE, Giannakouros T, Guttman M, Lanzuolo C, Tartaglia GG, Cerase A. LBR nucleoplasmic domains regulate X-chromosome solubility and nuclear organization. bioRxiv doi:10.64898/2026.03.30.714681.
+
+---
+
+## Smoke tests
+
+```bash
+make check
+```

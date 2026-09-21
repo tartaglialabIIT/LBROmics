@@ -1,4 +1,7 @@
-wd <- "/Users/jonathan/Desktop/IIT/Cerase_single_cell/ANALYSIS/Seurat_analysis/"
+#!/usr/bin/env Rscript
+# Set LBROMICS_SCRNA_ROOT to the Seurat analysis directory (contains RDS_objects/).
+wd <- Sys.getenv("LBROMICS_SCRNA_ROOT", unset = "")
+if (!nzchar(wd)) wd <- getwd()
 setwd(wd)
 
 library(Seurat)
